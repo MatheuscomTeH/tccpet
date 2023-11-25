@@ -35,7 +35,7 @@
 		<header class="header_section">
 			<div class="container-fluid">
 				<nav class="navbar navbar-expand-lg custom_nav-container">
-					<a class="navbar-brand" href="index.html"> <img
+					<a class="navbar-brand" href="/projetoweb/"> <img
 						src="<c:url value="/resources/images/logotcc.jpeg"/>" alt="">
 					</a>
 					<div class="" id="">
@@ -74,10 +74,11 @@
 				<div class="col-md-5 offset-md-1">
 					<div class="form_container">
 						<div class="heading_container">
+			
 
 							<h2>Efetue seu login:</h2>
 							<p>
-								   <c:if test="${not empty usuarioInvalido}">
+								   <c:if test="${param.error ne null}">
                                     <div class="alert alert-dismissible alert-primary">
                                            O usuário inválido. Por favor, tente novamente.
                                      </div>
@@ -87,12 +88,12 @@
 							</p>
 						</div>
 						<!--*configuraram o banco?.matheus-->
-						<form action="login" method="POST">
+						<form action="<c:url value='/login' />" method="post">
 							<div>
-								<input type="email" name="email" placeholder="E-mail" value='${usuarioInvalido}'  required />
+								<input type="text" name="username" id="username" placeholder="Username"  required />
 							</div>
 							<div>
-								<input type="password" name="senha" placeholder="senha" required />
+								<input type="password" id="password" name="password" placeholder="senha" required />
 							</div>
 							<button type="submit">Login</button>
 							</a>

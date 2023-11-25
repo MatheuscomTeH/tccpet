@@ -93,7 +93,7 @@
 						<form action="adiciona" method="POST"
 							id="formCadastro">
 							<div>
-								<input type="text" name="nome" placeholder="Digite seu nome"
+								<input type="text" name="username" placeholder="Digite seu nome"
 									maxlength="45" required />
 							</div>
 							<div>
@@ -108,16 +108,13 @@
 							
 							<div>
 								<div class="input-group">
-									<input type="password" name="senha" id="senha"
+									<input type="password" name="password" id="senha"
 										placeholder="Crie sua senha" required /> <i
 										class="bi bi-eye-fill"></i>
 
 								</div>
 							</div>
-							<div>
-								<input type="password" name="confirmarsenha"
-									placeholder="Confirme sua senha" required />
-							</div>
+
 							<div class="btn-box">
 								<button type="submit">Cadastrar</button>
 							</div>

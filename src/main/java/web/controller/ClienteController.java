@@ -4,62 +4,51 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import web.dao.ClienteDao;
+import web.dao.UsuarioDao;
 import web.model.Cliente;
+import web.model.Role;
+import web.model.Usuario;
 
 @Controller
-@Transactional
 @RequestMapping("cliente")
+@Transactional
 public class ClienteController {
-	
+
+	@Autowired
+	private UsuarioDao usuarioDao;
+
 	@Autowired
 	private ClienteDao dao;
-	
-	
-	
+
+	@Autowired
+	private PasswordEncoder encoder;
+
 	@RequestMapping("novo")
-	public String novo() {
+	public String returnForm() {
 		return "cliente/novo";
 	}
-	
-	@RequestMapping(value="adiciona",method = RequestMethod.POST)
-	public String adiciona(@Valid Cliente cliente,BindingResult result, Model model) {
-		if(result.hasErrors() || dao.buscaPorEmail(cliente.getEmail()) != null) {
+
+	@RequestMapping("adiciona")
+	public String adiciona(@Valid Usuario usuario, BindingResult userResult, @Valid Cliente cliente,
+			BindingResult clientResult) {
+
+		if (userResult.hasErrors() || clientResult.hasErrors() || usuarioDao.findByEmail(usuario.getEmail()) != null) {
 			return "redirect:novo";
 		}
+		
+		usuario.setRole(Role.CLIENTE.getNome());
+		usuario.setPassword(encoder.encode(usuario.getPassword()));
+		usuarioDao.adiciona(usuario);
+		cliente.setUsuario(usuario);
 		dao.adiciona(cliente);
-		
-		return "redirect:formLogin";
+
+		return "/login";
 	}
-	
-	
-	
-	@RequestMapping("formLogin")
-	public String formularioLogin() {
-		return "cliente/login";
-	}
-	
-	@RequestMapping("login")
-	public String login(String email, String senha,Model model) {
-		Cliente cliente = dao.buscaPorEmail(email);
-		if(cliente != null && cliente.getSenha().equals(senha)) {
-			return "cliente/agendamento";
-		}
-		
-		if(email != null) {
-			model.addAttribute("usuarioInvalido",email);
-			return "cliente/login";
-		}
-		return "index";
-		
-	}
-	
-	
 
 }
