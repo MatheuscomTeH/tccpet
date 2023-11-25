@@ -101,7 +101,7 @@
 										</h1>
 										<p>Amor, cuidado e patinhas!</p>
 										<div class="btn-box">
-											<a href="cliente/formLogin" class="btn-1"> Faça Login </a> <a
+											<a href="login" class="btn-1"> Faça Login </a> <a
 												href="<c:url value="cliente/novo"/>" class="btn-2">
 												Cadastro </a>
 										</div>

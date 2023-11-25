@@ -43,7 +43,7 @@ public class UsuarioDao {
 		return manager.find(Usuario.class, id);
 	}
 
-	public void remove(int id) {
+	public void remove(long id) {
 		manager.createQuery("delete from Usuario c where c.id = :id").setParameter("id", id).executeUpdate();
 	}
 

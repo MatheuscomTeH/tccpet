@@ -19,6 +19,9 @@ import web.model.Usuario;
 @RequestMapping("cliente")
 @Transactional
 public class ClienteController {
+	
+	
+
 
 	@Autowired
 	private UsuarioDao usuarioDao;

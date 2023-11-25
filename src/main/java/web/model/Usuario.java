@@ -1,10 +1,13 @@
 package web.model;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -14,14 +17,18 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(unique = true)
+	
 	@NotNull
+	@Column(unique = true)
 	private String email;
 	
 	@NotNull
 	private String password;
 	
 	private String role;
+	
+	
+	
 
 	public long getId() {
 		return id;
@@ -56,5 +63,12 @@ public class Usuario {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", email=" + email + ", password=" + password + ", role=" + role + "]";
+	}
+	
+	
 
 }
