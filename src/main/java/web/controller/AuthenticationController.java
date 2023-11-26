@@ -12,5 +12,10 @@ public class AuthenticationController {
 		return"login";
 	}
 	
+	
+	@RequestMapping("acesso-negado")
+	public String acessoNegado() {
+		return "access-denied";
+	}
 
 }

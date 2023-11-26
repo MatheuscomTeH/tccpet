@@ -57,6 +57,9 @@
 
 							</div></li>
 					</ul>
+					<div>
+						<a href="<c:url value="/logout"/>" class="btn btn-danger">Logout</a>
+					</div>
 				</div>
 			</div>
 		</nav>
