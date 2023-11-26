@@ -56,7 +56,7 @@ public class SecurityConfiguration {
         if (roles.contains("ADMIN")) {
             response.sendRedirect("admin/index");
         } else if (roles.contains("FUNCIONARIO")) {
-            response.sendRedirect("funcionario/dashboard");
+            response.sendRedirect("funcionario/index");
         } else if (roles.contains("CLIENTE")) {
             response.sendRedirect("cliente/dashboard");
         } else {
