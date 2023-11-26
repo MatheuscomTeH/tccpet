@@ -7,7 +7,7 @@ body {
 
 .layout_padding {
   padding-top: 0px;
-  padding-bottom: 120px;
+
 }
 
 .layout_padding2 {
@@ -487,9 +487,11 @@ a:focus {
 }
 
 .animal_section {
-  background-image: url(../images/animal-bg.jpg);
-  background-size: cover;
-  color: #ffffff;
+  background-image: url(../images/dog-azulin.jpeg);
+  background-size:contain;
+  color: black;
+  background-repeat: no-repeat;
+  background-color:  #A6A6A6;
 }
 
 .animal_section .animal_container {
@@ -1172,6 +1174,88 @@ li button{
 
 .footer_section a {
   color: #ffffff;
+}
+
+
+.card {
+  display: flex;
+  height: 600px;
+  width: 600px;
+  background-color: #17141d;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+/*   margin-left: -50px; */
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+  background-image:	url(../images/matheus.jpeg) ;
+}
+
+.card:not(:first-child) {
+    margin-left: -50px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.card:hover ~ .card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
+}
+
+.title {
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+.bar {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  height: 5px;
+  width: 150px;
+}
+
+.emptybar {
+  background-color: #2e3033;
+  width: 100%;
+  height: 100%;
+}
+
+.filledbar {
+  position: absolute;
+  top: 0px;
+  z-index: 3;
+  width: 0px;
+  height: 100%;
+  transition: 0.6s ease-out;
+  background-color: black;
+}
+
+.card:hover .filledbar {
+  width: 120px;
+  transition: 0.4s ease-out;
+}
+
+
+.card:hover .stroke {
+  stroke-dashoffset: 100;
+  transition: 0.6s ease-out;
+}
+.linha{
+	display:flex;
+	flex-direction: row;
+	max-width: 100%;	
+	justify-content: center;
+	overflow: hidden;
+	height: 700px;
+	align-items: center;
 }
 
 /* end footer section*/
