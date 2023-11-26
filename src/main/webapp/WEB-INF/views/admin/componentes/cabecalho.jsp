@@ -34,9 +34,7 @@
 
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="<c:url value="novo-cliente" />">Cliente</a>
-								<a class="dropdown-item" href="<c:url value="/funcionario/novo" />">Funcionario</a>
-								<a class="dropdown-item" href="<c:url value="/pet/novo" />">Pet</a>
-
+								<a class="dropdown-item" href="<c:url value="novo-funcionario" />">Funcionario</a>
 							</div></li>
 
 						<li class="nav-item  dropdown"><a
@@ -46,7 +44,7 @@
 							<div class="dropdown-menu">
 								<a class="dropdown-item"
 									href="<c:url value="lista-cliente" />">Clientes</a>
-								<a class="dropdown-item" href="<c:url value="/item/lista" />">Item</a>
+								<a class="dropdown-item" href="<c:url value="lista-funcionario" />">Funcionario</a>
 								<a class="dropdown-item" href="<c:url value="/solicitacao/lista" />">Solicitação</a>
 
 							</div></li>
