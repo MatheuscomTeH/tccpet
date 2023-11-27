@@ -33,7 +33,7 @@ public class SecurityConfiguration {
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/cliente/novo", "/login").permitAll()
+                .antMatchers("/", "/cliente/novo", "/login","/about").permitAll()
                 .antMatchers(HttpMethod.POST, "/cliente/adiciona").permitAll()
                 .antMatchers("/resources/**").permitAll()
                 .antMatchers("/funcionario/**").hasRole("FUNCIONARIO")
@@ -68,7 +68,7 @@ public class SecurityConfiguration {
         } else if (roles.contains("FUNCIONARIO")) {
             response.sendRedirect("funcionario/index");
         } else if (roles.contains("CLIENTE")) {
-            response.sendRedirect("cliente/dashboard");
+            response.sendRedirect("cliente/index");
         } else {
             response.sendRedirect("/projetoweb");
         }

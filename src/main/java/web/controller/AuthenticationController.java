@@ -17,5 +17,11 @@ public class AuthenticationController {
 	public String acessoNegado() {
 		return "access-denied";
 	}
+	
+	@RequestMapping("about")
+	public String returnAbout() {
+		return "about";
+	}
 
+	
 }

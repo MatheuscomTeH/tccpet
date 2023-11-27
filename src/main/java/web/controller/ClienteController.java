@@ -31,6 +31,12 @@ public class ClienteController {
 
 	@Autowired
 	private PasswordEncoder encoder;
+	
+	@RequestMapping("index")
+	public String home() {
+		return "cliente/agendamento";
+
+	}
 
 	@RequestMapping("novo")
 	public String returnForm() {

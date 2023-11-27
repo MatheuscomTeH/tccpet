@@ -67,9 +67,9 @@
 
 						<div id="myNav" class="overlay">
 							<div class="overlay-content">
-								<a href="index.html">Página Inicial</a> <a href="about.html">Sobre
-									nós</a> <a href="cliente/formLogin">Login</a> <a
-									href="contact.html">Cadastro</a>
+								<a href="<c:url value="/"/> "> Página Inicial</a> <a href="<c:url value="about"/>">Sobre
+									nós</a> <a href="<c:url value="login"/>">Login</a> <a
+									href="<c:url value="cliente/novo"/>">Cadastro</a>
 							</div>
 						</div>
 					</div>
