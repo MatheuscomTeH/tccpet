@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.dao.ClienteDao;
 import web.dao.FuncionarioDao;
+import web.dao.ServicoDao;
 import web.dao.UsuarioDao;
 import web.model.Cliente;
 import web.model.Funcionario;
 import web.model.Role;
+import web.model.Servico;
 import web.model.Usuario;
 
 @Transactional
@@ -28,6 +30,9 @@ public class AdminController {
 
 	@Autowired
 	private ClienteDao clienteDao;
+	
+	@Autowired
+	private ServicoDao servicoDao;
 
 	@Autowired
 	private PasswordEncoder encoder;
@@ -41,6 +46,7 @@ public class AdminController {
 
 	}
 
+	//cliente
 	@RequestMapping("/novo-cliente")
 	public String novoCliente() {
 		return "admin/cliente/novo";
@@ -110,6 +116,8 @@ public class AdminController {
 		return "redirect:lista-cliente";
 
 	}
+	
+	//funcionario
 
 	@RequestMapping("/novo-funcionario")
 	public String novoFuncionario() {
@@ -207,6 +215,66 @@ public class AdminController {
 	        }
 	    }
 	    return false;
+	}
+	
+	//servico
+	
+	@RequestMapping("/novo-servico")
+	public String novoServico() {
+		return "admin/servico/novo";
+	}
+
+	@RequestMapping("/adiciona-servico")
+	public String adicionaServico(@Valid Servico servico, BindingResult servicoResult) {
+		System.out.println(servicoResult);
+		if (servicoResult.hasErrors() || servicoDao.buscaPorNome(servico.getNome()) != null) {
+			return "redirect:novo-servico";
+		}
+
+		servicoDao.adiciona(servico);
+
+		return "redirect:lista-servico";
+	}
+
+	@RequestMapping("lista-servico")
+	public String listaServico(Model model) {
+		model.addAttribute("servicos", servicoDao.listar());
+		return "admin/servico/lista";
+	}
+
+	@RequestMapping("/remove-servico")
+	public String removeServico(long id) {
+		Servico servico = servicoDao.buscaPorId(id);
+		if (servico != null) {
+			servicoDao.remove(id);
+
+		}
+		return "redirect:lista-servico";
+	}
+
+	@RequestMapping("/exibe-servico")
+	public String exibeServico(long id, Model model) {
+		model.addAttribute("servico", servicoDao.buscaPorId(id));
+		return "admin/servico/exibe";
+	}
+
+	@RequestMapping("/edita-servico")
+	public String editaServico(long id, Model model) {
+		model.addAttribute("servico", servicoDao.buscaPorId(id));
+		return "admin/servico/edita";
+	}
+
+	@RequestMapping("/altera-servico")
+	public String alteraServico(@Valid Servico servico, BindingResult servicoResult) {
+
+		if(servicoResult.hasErrors() || servicoDao.buscaPorNome(servico.getNome()) != null && servicoDao.buscaPorNome(servico.getNome()).getId() != servico.getId() ) {
+			return "redirect:edita-servico?id=" + servico.getId();
+		}
+		
+		servicoDao.alterar(servico);
+
+		return "redirect:lista-servico";
+
 	}
 
 }
