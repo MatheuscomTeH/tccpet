@@ -25,6 +25,7 @@ import web.dao.UsuarioDao;
 import web.model.Agendamento;
 import web.model.Animal;
 import web.model.Cliente;
+
 import web.model.Endereco;
 import web.model.Role;
 import web.model.Usuario;
@@ -188,7 +189,7 @@ public class ClienteController {
 		return "cliente/endereco/lista";
 	}
 
-	@RequestMapping("novo-endereco")
+	@RequestMapping("endereco-novo")
 	public String novoEndereco(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String email = authentication.getName();
@@ -201,7 +202,7 @@ public class ClienteController {
 	public String adicionaEndereco(@Valid Endereco endereco, BindingResult result) {
 
 		if (result.hasErrors()) {
-			return "redirect:novo-endereco";
+			return "redirect:endereco-novo";
 		}
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String email = authentication.getName();
@@ -226,12 +227,13 @@ public class ClienteController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String email = authentication.getName();
 		Usuario usuario = usuarioDao.findByEmail(email);
+		System.out.println(result);
 		
-		if(result.hasErrors() || usuario != null && endereco.getCliente().getId() !=usuario.getCliente().getId()) {
-			return "redirect:lista-endereco?id="+endereco.getId();
+		if(result.hasErrors()) {
+			return "redirect:edita-endereco?id="+endereco.getId();
 		}
 		
-	
+		endereco.setCliente(usuario.getCliente());
 		enderecoDao.alterar(endereco);
 		
 		
@@ -257,7 +259,8 @@ public class ClienteController {
     	
     	 if(result.hasErrors()) {
     	  return"redirect:index";
-    	}
+    	 }
+    
     	 agendamento.setStatus("Pendente");
     	agendamentoDao.adiciona(agendamento);
     	return "redirect:lista-agendamento";

@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Agendamento {
 
@@ -35,12 +37,14 @@ public class Agendamento {
 	@NotNull
     private Cliente cliente;
 
+
     
     @NotNull
     private String data;
 
     @NotNull
     private String hora;
+
 
     private boolean levaTraz;
 

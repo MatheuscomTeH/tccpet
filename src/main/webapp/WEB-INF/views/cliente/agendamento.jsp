@@ -221,7 +221,7 @@
 										</div>
 										<!--Body-->
 										<div class="modal-body">
-											<input name="cliente.id" value="${cliente.id } hidden ">
+											<input name="cliente.id" value="${cliente.id}" hidden>
 											<div class="form-check">
 												<input type="checkbox" class="form-check-input"
 													id="servicoLevaTras" name="levaTraz" value="true">
@@ -230,12 +230,12 @@
 											</div>
 											<div class="form-group">
 												<label for="data">Data:</label> <input type="date"
-													class="form-control" id="data" name="data">
+													class="form-control" id="data" name="data"placeholder="dd-MM-yyyy">
 											</div>
 
 											<div class="form-group">
 												<label for="hora">Hora:</label> <input type="time"
-													class="form-control" id="hora" name="hora">
+													class="form-control" id="hora" name="hora"placeholder="HH:mm">
 											</div>
 
 											<div class="form-group">
@@ -244,22 +244,25 @@
 													name="descricao" rows="5"
 													placeholder="Digite sua mensagem aqui..."></textarea>
 											</div>
-											
-											<div>
-												<select name="animal.id" id="animal">
+											<div class="form-group">
+												<label for="animal">Selecione o Animal:</label> <select
+													class="form-select" name="animal.id" id="animal">
 													<c:forEach var="animal" items="${cliente.animais}">
 														<option value="${animal.id}">${animal.nome}</option>
 													</c:forEach>
 												</select>
 											</div>
-											
-											<div>
-												<select name="endereco.id" id="endereco">
+
+											<div class="form-group">
+												<label for="endereco">Selecione o Endereço:</label> <select
+													class="form-select" name="endereco.id" id="endereco">
 													<c:forEach var="endereco" items="${listaDeEnderecos}">
-														<option value="${endereco.id}">${endereco.rua endereco.bairro Numero: endereco.numero}</option>
+														<option value="${endereco.id}">${endereco.rua}
+															${endereco.bairro} Numero: ${endereco.numero}</option>
 													</c:forEach>
 												</select>
 											</div>
+
 
 										</div>
 										<!--footer-->
