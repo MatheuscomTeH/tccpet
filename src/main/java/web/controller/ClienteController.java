@@ -1,5 +1,7 @@
 package web.controller;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -14,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.dao.AnimalDao;
 import web.dao.ClienteDao;
+import web.dao.EnderecoDao;
 import web.dao.ServicoDao;
 import web.dao.UsuarioDao;
 import web.model.Animal;
 import web.model.Cliente;
+import web.model.Endereco;
 import web.model.Role;
 import web.model.Usuario;
 
@@ -25,7 +29,10 @@ import web.model.Usuario;
 @RequestMapping("cliente")
 @Transactional
 public class ClienteController {
-
+	
+	@Autowired
+	private EnderecoDao enderecoDao;
+	
 	@Autowired
 	private AnimalDao animalDao;
 
@@ -147,15 +154,18 @@ public class ClienteController {
 		
 	}
 	
-	@RequestMapping("remove-animal")
-	public String removeAnimal(long id) {
-		if(animalDao.buscaPorId(id)!= null) {
-			animalDao.remove(id);
+	@RequestMapping("remove-endereco")
+	public String removeEndereco(long id) {
+		if(enderecoDao.buscaPorId(id)!= null) {
+			enderecoDao.remove(id);
 			
 		}
-		return "redirect:lista-animal";
+		return "redirect:lista-endereco";
 	}
-	
-
-
+    // Novo método para retornar todos os endereços de um cliente pelo ID
+    public List<Endereco> listarEnderecoDoCliente(long clienteId) {
+        return manager.createQuery("select e from Endereco e where e.cliente.id = :clienteId", Endereco.class)
+                .setParameter("clienteId", clienteId)
+                .getResultList();
+    }
 }
