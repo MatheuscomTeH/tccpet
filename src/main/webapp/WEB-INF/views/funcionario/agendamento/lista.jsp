@@ -43,7 +43,7 @@
 								<td>${agendamento.status}</td>
 								<td><a href="<c:url value="/funcionario/aceitar-agendamento?id=${agendamento.id}"/>" class="btn btn-success mr-2" role="button">Confirmar</a>
 
-									<!-- Botão para Recusar --> <a href="<c:url value="/funcionario/recusar-agendamentoid=${agendamento.id}"/>" class="btn btn-danger"
+									<!-- Botão para Recusar --> <a href="<c:url value="/funcionario/recusar-agendamento?id=${agendamento.id}"/>" class="btn btn-danger"
 									role="button">Recusar</a></td>
 							</tr>
 						</c:forEach>

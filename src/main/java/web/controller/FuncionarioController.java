@@ -120,7 +120,7 @@ public class FuncionarioController {
 		
 		//agendamento
 		
-		@RequestMapping("lista_agendamentoP")
+		@RequestMapping("lista_agendamento")
 		public String listaAgendamentoPendente(Model model) {
 			
 			model.addAttribute("agendamentos",agendamentoDao.listarAgendamentosSemFuncionarios());
@@ -141,7 +141,7 @@ public class FuncionarioController {
 				agendamento.setStatus("ACEITO");
 			}
 			
-			return "redirect:lista-agendamentoP";
+			return "redirect:lista-agendamento";
 			
 		}
 		
@@ -158,7 +158,7 @@ public class FuncionarioController {
 				agendamento.setStatus("Recusado");
 			}
 			
-			return "redirect:lista-agendamentoP";
+			return "redirect:lista-agendamento";
 			
 		}
 }
