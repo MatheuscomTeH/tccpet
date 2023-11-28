@@ -1,7 +1,6 @@
 package web.model;
 
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -37,13 +35,12 @@ public class Agendamento {
 	@NotNull
     private Cliente cliente;
 
-    @Temporal(TemporalType.DATE)
+    
     @NotNull
-    private Date data;
+    private String data;
 
-    @Temporal(TemporalType.TIME)
     @NotNull
-    private Date hora;
+    private String hora;
 
     private boolean levaTraz;
 
@@ -103,23 +100,24 @@ public class Agendamento {
         this.cliente = cliente;
     }
 
-    public Date getData() {
-        return data;
-    }
+    
+    public String getData() {
+		return data;
+	}
 
-    public void setData(Date data) {
-        this.data = data;
-    }
+	public void setData(String data) {
+		this.data = data;
+	}
 
-    public Date getHora() {
-        return hora;
-    }
+	public String getHora() {
+		return hora;
+	}
 
-    public void setHora(Date hora) {
-        this.hora = hora;
-    }
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
 
-    public boolean isLevaTraz() {
+	public boolean isLevaTraz() {
         return levaTraz;
     }
 

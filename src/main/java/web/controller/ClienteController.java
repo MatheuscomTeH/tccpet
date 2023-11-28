@@ -254,8 +254,9 @@ public class ClienteController {
 	
     @PostMapping("adiciona-agendamento")
     public String adicionaAgendamento(@Valid Agendamento agendamento,BindingResult result) {
+    	
     	 if(result.hasErrors()) {
-    	  return	"redirect:index";
+    	  return"redirect:index";
     	}
     	 agendamento.setStatus("Pendente");
     	agendamentoDao.adiciona(agendamento);
