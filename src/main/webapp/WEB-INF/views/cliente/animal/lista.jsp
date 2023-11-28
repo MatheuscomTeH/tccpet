@@ -71,6 +71,89 @@
 			<div class="nav-menu">
 				<ul style="display: flex; flex-direction: column">
 
+<<<<<<< HEAD
+</aside>
+<main style="display: flex; align-items: center;">
+	<div class="container center-v">
+
+		<div class="card border-light mb-3">
+			<div class="card-header">Meus Pets</div>
+
+			<!-- Table -->
+			<div class="card-body">
+				<table class="table datatable" id="datatable">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Nome</th>
+							<th scope="col">Tipo</th>
+							<th scope="col">Idade</th>
+							<th scope="col">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- percorre cursos montando as linhas da tabela -->
+						<c:forEach var="animal" items="${cliente.animais}">
+							<tr>
+								<td scope="row">${animal.id}</td>
+								<td>${animal.nome}</td>
+								<td>${animal.tipo}</td>
+								<td>${animal.idade}</td>
+								<td>
+									<!-- Exibir --> <a
+									href="<c:url value="/cliente/exibe-animal?id=${animal.id}"/>"
+									class="btn btn-info btn-sm" data-toggle="tooltip"
+									data-bs-placement="bottom" title="Exibir"> <i
+										class="bi bi-eye"></i>
+								</a> <!-- Editar --> <a
+									href="<c:url value="/cliente/edita-animal?id=${animal.id}" />"
+									class="btn btn-warning btn-sm" data-toggle="tooltip"
+									data-bs-placement="bottom" title="Editar"> <i
+										class="bi bi-pencil-square"></i>
+								</a> <!-- Excluir -->
+									<button type="button" class="btn btn-danger btn-sm"
+										data-toggle="tooltip" data-bs-placement="bottom"
+										title="Excluir" data-bs-toggle="modal"
+										data-bs-target="#modal${animal.id}">
+										<i class="bi bi-trash"></i>
+									</button>
+									<div class="modal fade" id="modal${animal.id}"
+										tabindex="-1">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title">Exclusão do animal</h5>
+													<button type="button" class="btn-close"
+														data-bs-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true"></span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<p>
+														Deseja realmente excluir o animal <br>ID
+														(${animal.id}) -> ${animal.nome}?
+													</p>
+												</div>
+												<div class="modal-footer">
+													<a
+														href="<c:url value="/cliente/remove-animal?id=${animal.id}" />"
+														class="btn btn-danger"> <i class="bi bi-trash"></i>
+														Excluir
+													</a>
+													<button type="button" class="btn btn-secondary"
+														data-bs-dismiss="modal">
+														<i class="bi bi-x"></i> Fechar
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+=======
 					<li
 						style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
 						href="<c:url value="index"/>"><span style="margin-right: 10px"
@@ -97,6 +180,7 @@
 							style="margin-right: 10px" class="icon-sign-out mr-3"></span>Sign
 							out</a></li>
 				</ul>
+>>>>>>> b7e0d4df94ea13fa8e0637c9182f1e0347a962ec
 			</div>
 		</div>
 
