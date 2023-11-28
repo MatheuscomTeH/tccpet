@@ -181,17 +181,15 @@
 	<section
 		class="agendamento d-flex w-100 p-5 row row-cols-1 row-cols-lg-2">
 
-		<form class="col-lg-8" action="php/processar_agendamento.php"
-			method="POST">
+		<form class="col-lg-8" action="adiciona-agendamento" method="POST">
 			<div class="container-servicos-center">
 				<c:choose>
 					<c:when test="${empty servicos}">
-						<div class="alert alert-dismissible alert-warning" style="margin:auto;">
-						
+						<div class="alert alert-dismissible alert-warning"
+							style="margin: auto;">
+
 							<h4 class="alert-heading">Alerta!</h4>
-							<p class="mb-0">
-								Serviço indisponivel no momento
-							</p>
+							<p class="mb-0">Serviço indisponivel no momento</p>
 						</div>
 					</c:when>
 					<c:otherwise>
@@ -223,6 +221,13 @@
 										</div>
 										<!--Body-->
 										<div class="modal-body">
+											<input name="cliente.id" value="${cliente.id } hidden ">
+											<div class="form-check">
+												<input type="checkbox" class="form-check-input"
+													id="servicoLevaTras" name="levaTraz" value="true">
+												<label class="form-check-label" for="servicoLevaTras">Serviço
+													de Leva e Trás</label>
+											</div>
 											<div class="form-group">
 												<label for="data">Data:</label> <input type="date"
 													class="form-control" id="data" name="data">
@@ -235,9 +240,27 @@
 
 											<div class="form-group">
 												<label for="mensagem">Descrição:</label>
-												<textarea class="form-control" id="mensagem" name="mensagem"
-													rows="5" placeholder="Digite sua mensagem aqui..."></textarea>
+												<textarea class="form-control" id="mensagem"
+													name="descricao" rows="5"
+													placeholder="Digite sua mensagem aqui..."></textarea>
 											</div>
+											
+											<div>
+												<select name="animal.id" id="animal">
+													<c:forEach var="animal" items="${cliente.animais}">
+														<option value="${animal.id}">${animal.nome}</option>
+													</c:forEach>
+												</select>
+											</div>
+											
+											<div>
+												<select name="endereco.id" id="endereco">
+													<c:forEach var="endereco" items="${listaDeEnderecos}">
+														<option value="${endereco.id}">${endereco.rua endereco.bairro Numero: endereco.numero}</option>
+													</c:forEach>
+												</select>
+											</div>
+
 										</div>
 										<!--footer-->
 

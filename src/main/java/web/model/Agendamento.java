@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Agendamento {
@@ -31,31 +32,46 @@ public class Agendamento {
     @OneToOne
     private Endereco endereco;
 
-    public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
 	@ManyToOne
     @JoinColumn(name = "cliente_id")
+	@NotNull
     private Cliente cliente;
 
     @Temporal(TemporalType.DATE)
+    @NotNull
     private Date data;
 
     @Temporal(TemporalType.TIME)
+    @NotNull
     private Date hora;
 
     private boolean levaTraz;
 
     private boolean devolvido;
+    
+    private String descricao;
+    
+    private String status;
 
     // Getters and setters
 
-    public Long getId() {
+    public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -118,4 +134,11 @@ public class Agendamento {
     public void setDevolvido(boolean devolvido) {
         this.devolvido = devolvido;
     }
+    public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 }

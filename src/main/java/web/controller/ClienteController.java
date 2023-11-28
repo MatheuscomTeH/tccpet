@@ -12,13 +12,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import web.dao.AgendamentoDao;
 import web.dao.AnimalDao;
 import web.dao.ClienteDao;
 import web.dao.EnderecoDao;
 import web.dao.ServicoDao;
 import web.dao.UsuarioDao;
+import web.model.Agendamento;
 import web.model.Animal;
 import web.model.Cliente;
 import web.model.Endereco;
@@ -29,6 +33,10 @@ import web.model.Usuario;
 @RequestMapping("cliente")
 @Transactional
 public class ClienteController {
+	
+	
+	@Autowired
+	private AgendamentoDao agendamentoDao;
 	
 	@Autowired
 	private EnderecoDao enderecoDao;
@@ -51,11 +59,12 @@ public class ClienteController {
 	@RequestMapping("index")
 	public String home(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
 		String email = authentication.getName();
-
+		Cliente cliente = usuarioDao.findByEmail(email).getCliente();
+		
+		model.addAttribute("listaDeEnderecos",enderecoDao.listarEnderecoDoCliente(cliente.getId()));
 		model.addAttribute("servicos", servicoDao.listar());
-		model.addAttribute("cliente", usuarioDao.findByEmail(email).getCliente());
+		model.addAttribute("cliente", cliente);
 
 		return "cliente/agendamento";
 
@@ -240,6 +249,41 @@ public class ClienteController {
 		}
 		return "redirect:lista-endereco";
 	}
+	
+	// Agendamento
+	
+    @PostMapping("adiciona-agendamento")
+    public String adicionaAgendamento(@Valid Agendamento agendamento,BindingResult result) {
+    	 if(result.hasErrors()) {
+    	  return	"redirect:index";
+    	}
+    	 agendamento.setStatus("Pendente");
+    	agendamentoDao.adiciona(agendamento);
+    	return "redirect:lista-agendamento";
+    }
+    
+    @GetMapping("lista-agendamento")
+    public String listaAgendamento(Model model) {
+    	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		Usuario usuario = usuarioDao.findByEmail(email);
+		model.addAttribute("cliente", usuarioDao.findByEmail(email).getCliente());
+    	model.addAttribute("agendamentos",agendamentoDao.listarAgendamentosPorClienteId(usuario.getCliente().getId()));
+    	return "cliente/agendamento/lista";
+    }
+    
+    @GetMapping("remove-agendamento")
+    public String removeAgendamento(long id) {
+    	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    	String email = authentication.getName();
+		Usuario usuario = usuarioDao.findByEmail(email);
+    	if(agendamentoDao.buscaPorId(id) != null && agendamentoDao.buscaPorId(id).getCliente().getId() == usuario.getCliente().getId()) {
+    		agendamentoDao.remove(id);
+    	}
+    	
+    	return "redirect:lista-agendamento";
+    	
+    }
    
     
 }

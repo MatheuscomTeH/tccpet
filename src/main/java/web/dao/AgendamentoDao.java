@@ -27,7 +27,14 @@ public class AgendamentoDao {
 		return manager.createQuery("select a from Agendamento a", Agendamento.class).getResultList();
 	}
 
+	public List<Agendamento> listarAgendamentosPorClienteId(long clienteId) {
+		String jpql = "select a from Agendamento a "
+				+ "where a.cliente.id = :clienteId";
 
+		return manager.createQuery(jpql, Agendamento.class)
+				.setParameter("clienteId", clienteId)
+				.getResultList();
+	}
 	
 
 	public Agendamento buscaPorId(long id) {
