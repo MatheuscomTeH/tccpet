@@ -6,8 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
-
 import org.springframework.stereotype.Repository;
+
 
 import web.model.Cliente;
 
@@ -40,6 +40,13 @@ public class ClienteDao {
 	public Cliente buscaPorId(long id) {
 		return manager.find(Cliente.class, id);
 	}
+	
+	 public void removeAnimais(long clienteId) {
+	        Cliente cliente = manager.find(Cliente.class, clienteId);
+	        if (cliente != null) {
+	            cliente.setAnimais(null);
+	        }
+	    }
 	
 	
 

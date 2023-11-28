@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -29,7 +30,12 @@ public class AnimalDao {
 		public List<Animal> listar() {
 			return manager.createQuery("select a from Animal a", Animal.class).getResultList();
 		}
-
+		
+		public void deleteAnimaisByClienteId(long clienteId) {
+		    Query query = manager.createQuery("DELETE FROM Animal a WHERE a.cliente.id = :clienteId");
+		    query.setParameter("clienteId", clienteId);
+		    
+		}
 
 		public Animal buscaPorId(long id) {
 			return manager.find(Animal.class, id);

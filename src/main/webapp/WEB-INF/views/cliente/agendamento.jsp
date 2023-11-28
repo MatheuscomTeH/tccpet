@@ -16,8 +16,8 @@
 <!-- bootstrap core css -->
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/vendor/bootstrap/css/bootstrap.css" />">
-	
-	<link rel="stylesheet" type="text/css"
+
+<link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/vendor/bootstrap/css/bootstrap-icons.css" />">
 
 
@@ -184,63 +184,75 @@
 		<form class="col-lg-8" action="php/processar_agendamento.php"
 			method="POST">
 			<div class="container-servicos-center">
-
-				<c:forEach var="servico" items="${servicos}" varStatus="loop">
-					<!--servico-->
-					<div class="card" style="width: 18rem; text-align: center">
-						<div class="card-body">
-							<h5 class="card-title">${servico.titulo}</h5>
-							<p class="card-text">${servico.descricao}</p>
-							<a href="#" data-toggle="modal"
-								data-target="#modalCart${loop.index}"
-								style="background-color: #78B8C6" class="btn">Agendar</a>
+				<c:choose>
+					<c:when test="${empty servicos}">
+						<div class="alert alert-dismissible alert-warning" style="margin:auto;">
+						
+							<h4 class="alert-heading">Alerta!</h4>
+							<p class="mb-0">
+								Serviço indisponivel no momento
+							</p>
 						</div>
-					</div>
-
-					<div class="modal fade" id="modalCart${loop.index}" tabindex="-1"
-						role="dialog" aria-labelledby="exampleModalLabel"
-						aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<!--Header-->
-								<div class="modal-header">
-									<h4 class="modal-title" id="myModalLabel">Agendar
-										${servico.nome}</h4>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<!--Body-->
-								<div class="modal-body">
-									<div class="form-group">
-										<label for="data">Data:</label> <input type="date"
-											class="form-control" id="data" name="data">
-									</div>
-
-									<div class="form-group">
-										<label for="hora">Hora:</label> <input type="time"
-											class="form-control" id="hora" name="hora">
-									</div>
-
-									<div class="form-group">
-										<label for="mensagem">Descrição:</label>
-										<textarea class="form-control" id="mensagem" name="mensagem"
-											rows="5" placeholder="Digite sua mensagem aqui..."></textarea>
-									</div>
-								</div>
-								<!--footer-->
-
-
-								<div class="modal-footer">
-									<button type="button" class="btn btn-outline-primary"
-										data-dismiss="modal">Close</button>
-									<button class="btn btn-primary">Checkout</button>
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="servico" items="${servicos}" varStatus="loop">
+							<!--servico-->
+							<div class="card" style="width: 18rem; text-align: center">
+								<div class="card-body">
+									<h5 class="card-title">${servico.titulo}</h5>
+									<p class="card-text">${servico.descricao}</p>
+									<a href="#" data-toggle="modal"
+										data-target="#modalCart${loop.index}"
+										style="background-color: #78B8C6" class="btn">Agendar</a>
 								</div>
 							</div>
-						</div>
-					</div>
-				</c:forEach>
+
+							<div class="modal fade" id="modalCart${loop.index}" tabindex="-1"
+								role="dialog" aria-labelledby="exampleModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<!--Header-->
+										<div class="modal-header">
+											<h4 class="modal-title" id="myModalLabel">Agendar
+												${servico.nome}</h4>
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<!--Body-->
+										<div class="modal-body">
+											<div class="form-group">
+												<label for="data">Data:</label> <input type="date"
+													class="form-control" id="data" name="data">
+											</div>
+
+											<div class="form-group">
+												<label for="hora">Hora:</label> <input type="time"
+													class="form-control" id="hora" name="hora">
+											</div>
+
+											<div class="form-group">
+												<label for="mensagem">Descrição:</label>
+												<textarea class="form-control" id="mensagem" name="mensagem"
+													rows="5" placeholder="Digite sua mensagem aqui..."></textarea>
+											</div>
+										</div>
+										<!--footer-->
+
+
+										<div class="modal-footer">
+											<button type="button" class="btn btn-outline-primary"
+												data-dismiss="modal">Close</button>
+											<button class="btn btn-primary">Checkout</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
 			</div>
 
 

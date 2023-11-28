@@ -24,7 +24,8 @@ import web.model.Usuario;
 @Controller
 @RequestMapping("admin")
 public class AdminController {
-
+	
+	
 	@Autowired
 	private UsuarioDao usuarioDao;
 
@@ -36,6 +37,8 @@ public class AdminController {
 
 	@Autowired
 	private PasswordEncoder encoder;
+	
+	
 
 	@Autowired
 	private FuncionarioDao funcionarioDao;
@@ -79,7 +82,7 @@ public class AdminController {
 	public String removeCliente(long id) {
 		Cliente cliente = clienteDao.buscaPorId(id);
 		if (cliente != null) {
-			clienteDao.remove(cliente.getId());
+			clienteDao.remove(id);
 			usuarioDao.remove(cliente.getUsuario().getId());
 
 		}
