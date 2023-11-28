@@ -110,5 +110,52 @@ public class ClienteController {
 		return "redirect:lista-animal";
 
 	}
+	
+	@RequestMapping("edita-animal")
+	public String editaAnimal(long id,Model model) {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		model.addAttribute("cliente", usuarioDao.findByEmail(email).getCliente());
+		model.addAttribute("animal",animalDao.buscaPorId(id));
+		return "cliente/animal/edita";
+	}
+	
+	@RequestMapping("altera-animal")
+	public String alteraAnimal(@Valid Animal animal,BindingResult result) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		Usuario user = usuarioDao.findByEmail(email);
+		Animal newAnimal = animalDao.buscaPorId(animal.getId());
+		if(result.hasErrors() || user == null || newAnimal == null) {
+			return "redirect:lista-animal?id="+animal.getId();
+		}
+		
+	
+		for(Animal a : user.getCliente().getAnimais() ) {
+			if(a.getId() == newAnimal.getId()) {
+				newAnimal.setIdade(animal.getIdade());
+				newAnimal.setNome(animal.getNome());
+				newAnimal.setTipo(animal.getTipo());
+				
+			}
+		}
+		
+		
+		
+		return "redirect:lista-animal";
+		
+	}
+	
+	@RequestMapping("remove-animal")
+	public String removeAnimal(long id) {
+		if(animalDao.buscaPorId(id)!= null) {
+			animalDao.remove(id);
+			
+		}
+		return "redirect:lista-animal";
+	}
+	
+
 
 }
