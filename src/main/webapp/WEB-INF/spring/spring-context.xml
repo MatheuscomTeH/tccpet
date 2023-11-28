@@ -46,7 +46,7 @@
 			value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/petshop" />
 		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="" />
 	</bean>
 
 	<!-- gerenciamento de jpa pelo spring -->

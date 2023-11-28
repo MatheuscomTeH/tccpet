@@ -1,43 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <!-- Basico -->
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>Hermann Pets</title>
 
-  <!-- bootstrap coresssss css -->
-	<link rel="stylesheet" type="text/css"
-	href="<c:url value='/resources/css/bootstrap.css'/>">
+<!-- bootstrap core css -->
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/vendor/bootstrap/css/bootstrap.min.css" />">
 
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins:400,700&display=swap" rel="stylesheet">
-  <!-- css-->
-<link href="<c:url value='/resources/css/style.css'/>" rel="stylesheet">
-  <!-- responsive style -->
-<link href="<c:url value='/resources/css/responsive.css'/>"
+<!-- fonts style -->
+<link
+	href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans|Poppins:400,700&display=swap"/>"
 	rel="stylesheet">
 
-  <script src="code.agendamentojava.js" defer></script>
+<!-- css-->
+<link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet" />
+
+
 </head>
 
 <body>
+  
+  <div class="hero_area_agendamento">
 
-
-  <div class="hero_area ">
     <!-- header -->
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="index.html">
-            <img src="images/logotcc.jpeg" alt="">
+            <img src="<c:url value="/resources/images/logotcc.jpeg"/>" alt="Logo da petshop">
           </a>
           <div class="" id="">
             <div class="User_option">
@@ -48,7 +47,7 @@
             </div>
 
             <div class="custom_menu-btn">
-              <button onclick="openNav()">
+              <button class="open__nav__btn">
                 <span class="s-1">
 
                 </span>
@@ -88,7 +87,7 @@
         <div class="animal_container">
           <div class="box b1">
             <div class="img-box">
-              <img src="images/dog.jpg" alt="">
+              <img src="<c:url value="/resources/images/dog.jpg"/>" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -101,7 +100,7 @@
           </div>
           <div class="box b2">
             <div class="img-box">
-              <img src="images/cavalo.jpg" alt="">
+              <img src="<c:url value="/resources/images/cavalo.jpg"/>"" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -114,7 +113,7 @@
           </div>
           <div class="box b1">
             <div class="img-box">
-              <img src="images/chinchila.jpg" alt="">
+              <img src="<c:url value="/resources/images/chinchila.jpg"/>" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -127,7 +126,7 @@
           </div>
           <div class="box b2">
             <div class="img-box">
-              <img src="images/cat.jpg" alt="">
+              <img src="<c:url value="/resources/images/cat.jpg"/>" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -148,176 +147,29 @@
       <option value="4">CAVALO</option>
     </select>
   </div>
-  </div>
-  </div>
-  <section class="agendamentoo">
-    <form action="processar_agendamento.php" method="POST"> <!-- Início do formulário -->
-      <ul id="servicos">
-          <li>
-              <h2>Banho</h2>
-              <p>Deixe o seu pet limpo e cheiroso com o nosso serviço de banho profissional.</p>
-              <div class="container">
-                <!-- POPUP-->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#banho">
-                  Agendar
-                </button>
-                <div class="modal fade" id="banho">
-                  <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title">Confirmar agendamento</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>                  
-                      <div class="modal-body">
-                        <div>
-                        Serviço de leva e trás por + R$12
-                      </div>  
-                      <input type="checkbox" id="flagCheckbox" name="flagg" value="checked">
-                      <div class="flag">
-                        <input type="text" name="ani" placeholder="Digite o nome de seu bichinho" required/>
-                      <input type="text" name="endereço" placeholder="Digite seu endereço">              
-                    </div> 
-                    <input type="date" id="diaa_banho" name="diaa_banho" />
-                      </div>
-                      
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="submit" name="servico" value="banho">Agendar Banho</button>     
-          </li>
 
-          <li>
-              <h2>Tosa</h2>
-              <p>Cuide da saúde do seu animal de estimação nesse calor com nossa tosa especializada.</p>
-              <!-- POPUP-->
-              <div class="container">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tosa">
-                  Agendar
-                </button>
-                <div class="modal fade" id="tosa">
-                  <div class="modal-dialog modal-xl">
-                    <div class="modal-content">     
-                      <div class="modal-header">
-                        <h4 class="modal-title">Confirmar agendamento</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-                      <div class="modal-body">
-                        Serviço de leva e trás por + R$12
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <input type="date" id="diaa_tosa" name="diaa_tosa" />
-              <button type="submit" name="servico" value="tosa">Agendar Tosa</button>
-          </li>
 
-          <img src="images/doguinho.png" alt="fotolateralcachorro"class="imagem-lateral">
-          <li>
-              <h2>Passeios Diários</h2>
-              <p>Mantenha o seu cão ativo e feliz com os nossos passeios diários pelo parque.</p>
-              <!-- POPUP-->
-              <div class="container">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passeio">
-                  Agendar
-                </button>
-                <div class="modal fade" id="passeio">
-                  <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title">Confirmar agendamento</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-                      <div class="modal-body">
-                        Serviço de leva e trás por + R$12
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <!--Confirmar Agendamento-->
-              <input type="date" id="diaa_passeios" name="diaa_passeios" />
-              <button type="submit" name="servico" value="passeios">Agendar Passeios</button>
-          </li>
-          <li>
-              <h2>Adoção de Animais</h2>
-              <p>Encontre um novo amigo para a vida, visite nosso abrigo e adote um animal de estimação.</p>
-              
-<div class="container">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adocao">
-    Agendar
-  </button>
-  <div class="modal fade" id="adocao">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content"> 
-        <div class="modal-header">
-          <h4 class="modal-title">Confirmar agendamento</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          Serviço de leva e trás por + R$12
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <!--Confirmar-->
-              <input type="date" id="diaa_adocao" name="diaa_adocao" />
-              <button type="submit" name="servico" value="adocao">Agendar Adoção</button>
+  <section class="agendamento d-flex w-100 p-5 row row-cols-1 row-cols-lg-2">
 
-          </li>
+    <form class="col-lg-8" action="php/processar_agendamento.php" method="POST"> 
 
-          <li>
-            <h2>Treinamento Comportamental</h2>
-            <p>Ajude o seu pet a se comportar melhor com nosso  treinamento.</p>
+        <ul id="servicos" class="row row-cols-2 row-cols-lg-2">
+          
+          
+        </ul> 
+       
 
-            <!-- POPUP-->
-            <div class="container">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#treinamento">
-                Agendar
-              </button>
-              <div class="modal fade" id="treinamento">
-                <div class="modal-dialog modal-xl">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title">Confirmar agendamento</h4>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>              
-                    <div class="modal-body">
-                      Serviço de leva e trás por + R$12
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>  
-                      <!--Confirmar agendamento-->      
-            <input type="date" id="diaa_treinamento" name="diaa_treinamento" />
-            <button type="submit" name="servico" value="treinamento">Agendar Treinamento</button>
-          </div>
-        </div>
-        <li>
-          <h2>Hospedagem</h2>
-          <p>Precisa viajar? Nós tomamos conta de seu pet até em finais de semana
-              .</p>
-          <!-- POPUP-->
-          <div class="container">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hotel">
-              Agendar
-            </button>
-            <div class="modal fade" id="">
-              <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title">Confirmar agendamento</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>              
-                  <div class="modal-body">
-                    Serviço de leva e trás por + R$12
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>  
-                     
-                    <!--Confirmar agendamento-->      
-          <input type="date" id="diaa_ida_hospedagem" name="diaa_ida_hospedagem" />
-          <input type="date" id="diaa_volta_hospedagem" name="diaa_volta_hospedagem" />
-          <button type="submit" name="servico" value="hospedagem">Agendar Hospedagem</button>
-        </div>
-      </div>
+      </form>
 
-      </section>
+      <figure class="col-lg-4">
+        <img src="<c:url value="/resources/images/doguinho.png"/>" alt="foto lateral de um cachorro" class="img-fluid ">
+      </figure>
+   
 
- <!-- informacoes de sempre -->
+
+    </section>
+
+
  <section class="info_section ">
   <div class="container">
     <div class="row">
@@ -327,7 +179,7 @@
             Contato
           </h5>
           <div>
-            <img src="<c:url value="/resources/images/call.png"/>"alt="" />
+            <img src="<c:url value="/resources/images/call.png"/>" alt="" />
             <p>
               +01 1234567890
             </p>
@@ -366,7 +218,7 @@
           <div class="social_container">
             <div>
               <a href="">
-                <img  src="<c:url value="/resources/images/fb.png"/>" alt="" />
+                <img src="<c:url value="/resources/images/fb.png"/>" alt="" />
               </a>
             </div>
             <div>
@@ -388,14 +240,15 @@
         </div>
       </div>
 
-								<script type="text/javascript" src="<c:url value="/resources/js/jquery-3.4.1.min.js"/>"></script>
-						<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js"/>"></script>
-<script>
-  function openNav() {
-    document.getElementById("myNav").classList.toggle("menu_width")
-    document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
-  }
-</script>
+      <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="<c:url value="/resources/vendor/bootstrap/css/bootstrap.min.css" />"></script>
+
+
+    
 
 </body>
 
