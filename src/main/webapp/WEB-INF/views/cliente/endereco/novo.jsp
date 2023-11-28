@@ -84,7 +84,7 @@
 
     <main>
         <div class="container">
-            <form action="adiciona-animal" method="POST" class="row g-3">
+            <form action="adiciona-endereco" method="POST" class="row g-3">
                 <security:csrfInput />
                 <!-- ... (seus campos existentes) ... -->
                 <!-- Novos campos para endereço -->
@@ -137,7 +137,7 @@
         <option value="Vorstadt" ${endereco.bairro == 'Vorstadt' ? 'selected' : ''}>Vorstadt</option>
     </select>
 </div>
-
+ <input name="cliente.id" hidden value="${cliente.id}">
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-lg">
                         <i class="bi bi-plus-circle"></i> Cadastrar

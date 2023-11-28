@@ -14,6 +14,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Agendamento {
 
@@ -37,13 +39,15 @@ public class Agendamento {
 	@NotNull
     private Cliente cliente;
 
-    @Temporal(TemporalType.DATE)
-    @NotNull
-    private Date data;
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Date data;
 
-    @Temporal(TemporalType.TIME)
-    @NotNull
-    private Date hora;
+	@NotNull
+	@Temporal(TemporalType.TIME)
+	@DateTimeFormat(pattern = "HH:mm")
+	private Date hora;
 
     private boolean levaTraz;
 

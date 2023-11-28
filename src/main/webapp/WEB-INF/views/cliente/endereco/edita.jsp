@@ -124,8 +124,8 @@
 
             <!-- BAIRRO -->
             <div class="container mt-5">
-                <label for="bairros" class="form-label">Selecione o Bairro:</label>
-                <select class="form-select" id="bairros" name="bairros">
+                <label for="bairro" class="form-label">Selecione o Bairro:</label>
+                <select class="form-select" id="bairro" name="bairro">
                     <option value="Água Verde">Água Verde</option>
                     <option value="Badenfurt">Badenfurt</option>
                     <option value="Bom Retiro">Bom Retiro</option>

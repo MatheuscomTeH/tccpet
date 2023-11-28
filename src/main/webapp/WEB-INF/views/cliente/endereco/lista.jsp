@@ -122,7 +122,7 @@
             </thead>
             <tbody>
                 <!-- percorre endereços montando as linhas da tabela -->
-                <c:forEach var="endereco" items="${cliente.enderecos}">
+                <c:forEach var="endereco" items="${enderecos}">
                     <tr>
                         <td scope="row">${endereco.id}</td>
                         <td>${endereco.rua}</td>
@@ -172,7 +172,7 @@
 
 
 					<div align="center">
-						<a href="<c:url value="/cliente/novo-animal" />"
+						<a href="<c:url value="/cliente/endereco-novo" />"
 							class="btn btn-primary btn-lg"> <i class="bi bi-plus-circle"></i>
 							Cadastrar
 						</a>

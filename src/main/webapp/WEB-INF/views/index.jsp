@@ -90,9 +90,7 @@
 							<div class="row">
 								<div class="col-md-5 offset-md-1">
 									<div class="detail-box">
-										<div class="number">
-											<h5>01</h5>
-										</div>
+										
 										<h1>
 											Hermann Pets <br> <span> Faça seu animalzinho
 												feliz! </span>
