@@ -113,7 +113,7 @@
 
 			<!-- NOME -->
 			<div class="form-group">
-				<label for="nome" class="col-form-label"></label> <input value="${animal.nome}"
+				<label for="nome" class="col-form-label">Nome</label> <input value="${animal.nome}"
 					type="text" class="form-control" name="nome" autofocus
 					MAXLENGTH="255" required>
 			</div>
@@ -134,7 +134,7 @@
 
 
 			<div class="form-group">
-				<label for="idade" class="col-form-label"></label> <input
+				<label for="idade" class="col-form-label">Idade</label> <input
 					type="number" value="${animal.idade}" class="form-control" name="idade" 
 				 required>
 			</div>

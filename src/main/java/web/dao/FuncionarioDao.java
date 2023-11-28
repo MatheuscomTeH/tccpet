@@ -7,7 +7,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
-import web.model.Cliente;
+
 import web.model.Funcionario;
 
 @Repository

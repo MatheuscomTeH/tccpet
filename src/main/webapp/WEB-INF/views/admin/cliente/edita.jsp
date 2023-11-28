@@ -48,11 +48,11 @@
 				maxlength="11" class="form-control" required  />
 			</div>
 
-			<div class="form-group">
-			<label for="password" class="col-form-label obrigatorio">Senha</label>
-				<input type="password" value='${cliente.usuario.password }' name="password" 
+			
+			
+				<input hidden type="password" value='${cliente.usuario.password }' name="password" 
 									maxlength="50" class="form-control" required />
-			</div>
+		
 
 
 			<div class="text-center">

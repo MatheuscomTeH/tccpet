@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+
 
 import org.springframework.stereotype.Repository;
 
@@ -40,5 +40,11 @@ public class EnderecoDao {
 		manager.createQuery("delete from Endereco e where e.id = :id").setParameter("id", id).executeUpdate();
 	}
 
-
+	public List<Endereco> listarEnderecoDoCliente(long clienteId) {
+        return manager.createQuery("select e from Endereco e where e.cliente.id = :clienteId", Endereco.class)
+                .setParameter("clienteId", clienteId)
+                .getResultList();
+    }
+	
+	
 }

@@ -1,6 +1,6 @@
 package web.controller;
 
-import java.util.List;
+
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -154,6 +154,84 @@ public class ClienteController {
 		
 	}
 	
+
+	
+	@RequestMapping("remove-animal")
+	public String removeAnimal(long id) {
+		if(animalDao.buscaPorId(id)!= null) {
+			animalDao.remove(id);
+			
+		}
+		return "redirect:lista-animal";
+	}
+   
+	
+	//endereco
+	
+
+	@RequestMapping("lista-endereco")
+	public String listaEndereco(Model model) {
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		model.addAttribute("enderecos",enderecoDao.listarEnderecoDoCliente(usuarioDao.findByEmail(email).getCliente().getId()));
+		model.addAttribute("cliente", usuarioDao.findByEmail(email).getCliente());
+		return "cliente/endereco/lista";
+	}
+
+	@RequestMapping("novo-endereco")
+	public String novoEndereco(Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		model.addAttribute("cliente", usuarioDao.findByEmail(email).getCliente());
+		return "cliente/endereco/novo";
+
+	}
+
+	@RequestMapping("adiciona-endereco")
+	public String adicionaEndereco(@Valid Endereco endereco, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "redirect:novo-endereco";
+		}
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		endereco.setCliente(usuarioDao.findByEmail(email).getCliente());
+		enderecoDao.adiciona(endereco);
+		return "redirect:lista-endereco";
+
+	}
+	
+	@RequestMapping("edita-endereco")
+	public String editaEndereco(long id,Model model) {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		model.addAttribute("cliente", usuarioDao.findByEmail(email).getCliente());
+		model.addAttribute("endereco",enderecoDao.buscaPorId(id));
+		return "cliente/endereco/edita";
+	}
+	
+	@RequestMapping("altera-endereco")
+	public String alteraEndereco(@Valid Endereco endereco,BindingResult result) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		Usuario usuario = usuarioDao.findByEmail(email);
+		
+		if(result.hasErrors() || usuario != null && endereco.getCliente().getId() !=usuario.getCliente().getId()) {
+			return "redirect:lista-endereco?id="+endereco.getId();
+		}
+		
+	
+		enderecoDao.alterar(endereco);
+		
+		
+		return "redirect:lista-endereco";
+		
+	}
+	
+
+	
 	@RequestMapping("remove-endereco")
 	public String removeEndereco(long id) {
 		if(enderecoDao.buscaPorId(id)!= null) {
@@ -162,10 +240,6 @@ public class ClienteController {
 		}
 		return "redirect:lista-endereco";
 	}
-    // Novo método para retornar todos os endereços de um cliente pelo ID
-    public List<Endereco> listarEnderecoDoCliente(long clienteId) {
-        return manager.createQuery("select e from Endereco e where e.cliente.id = :clienteId", Endereco.class)
-                .setParameter("clienteId", clienteId)
-                .getResultList();
-    }
+   
+    
 }
