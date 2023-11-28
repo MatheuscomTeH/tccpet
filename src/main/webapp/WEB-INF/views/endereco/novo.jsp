@@ -96,10 +96,48 @@
                     <label for="numero" class="col-form-label">Número</label>
                     <input type="text" class="form-control" name="numero" required>
                 </div>
-                <div class="form-group">
-                    <label for="bairro" class="col-form-label">Bairro</label>
-                    <input type="text" class="form-control" name="bairro" required>
-                </div>
+                <!-- BAIRRO -->
+<div class="form-group">
+    <label for="bairro" class="form-label">Selecione o Bairro:</label>
+    <select class="form-select" id="bairro" name="bairro">
+        <option value="Água Verde" ${endereco.bairro == 'Água Verde' ? 'selected' : ''}>Água Verde</option>
+        <option value="Badenfurt" ${endereco.bairro == 'Badenfurt' ? 'selected' : ''}>Badenfurt</option>
+        <option value="Bom Retiro" ${endereco.bairro == 'Bom Retiro' ? 'selected' : ''}>Bom Retiro</option>
+        <option value="Boa Vista" ${endereco.bairro == 'Boa Vista' ? 'selected' : ''}>Boa Vista</option>
+        <option value="Centro" ${endereco.bairro == 'Centro' ? 'selected' : ''}>Centro</option>
+        <option value="Da Glória" ${endereco.bairro == 'Da Glória' ? 'selected' : ''}>Da Glória</option>
+        <option value="Do Salto" ${endereco.bairro == 'Do Salto' ? 'selected' : ''}>Do Salto</option>
+        <option value="Escola Agrícola" ${endereco.bairro == 'Escola Agrícola' ? 'selected' : ''}>Escola Agrícola</option>
+        <option value="Fidélis" ${endereco.bairro == 'Fidélis' ? 'selected' : ''}>Fidélis</option>
+        <option value="Fortaleza" ${endereco.bairro == 'Fortaleza' ? 'selected' : ''}>Fortaleza</option>
+        <option value="Fortaleza Alta" ${endereco.bairro == 'Fortaleza Alta' ? 'selected' : ''}>Fortaleza Alta</option>
+        <option value="Garcia" ${endereco.bairro == 'Garcia' ? 'selected' : ''}>Garcia</option>
+        <option value="Itoupava Central" ${endereco.bairro == 'Itoupava Central' ? 'selected' : ''}>Itoupava Central</option>
+        <option value="Itoupava Norte" ${endereco.bairro == 'Itoupava Norte' ? 'selected' : ''}>Itoupava Norte</option>
+        <option value="Itoupava Seca" ${endereco.bairro == 'Itoupava Seca' ? 'selected' : ''}>Itoupava Seca</option>
+        <option value="Itoupavazinha" ${endereco.bairro == 'Itoupavazinha' ? 'selected' : ''}>Itoupavazinha</option>
+        <option value="Jardim Blumenau" ${endereco.bairro == 'Jardim Blumenau' ? 'selected' : ''}>Jardim Blumenau</option>
+        <option value="Nova Esperança" ${endereco.bairro == 'Nova Esperança' ? 'selected' : ''}>Nova Esperança</option>
+        <option value="Passo Manso" ${endereco.bairro == 'Passo Manso' ? 'selected' : ''}>Passo Manso</option>
+        <option value="Ponta Aguda" ${endereco.bairro == 'Ponta Aguda' ? 'selected' : ''}>Ponta Aguda</option>
+        <option value="Progresso" ${endereco.bairro == 'Progresso' ? 'selected' : ''}>Progresso</option>
+        <option value="Ribeirão Fresco" ${endereco.bairro == 'Ribeirão Fresco' ? 'selected' : ''}>Ribeirão Fresco</option>
+        <option value="Salto do Norte" ${endereco.bairro == 'Salto do Norte' ? 'selected' : ''}>Salto do Norte</option>
+        <option value="Salto Weissbach" ${endereco.bairro == 'Salto Weissbach' ? 'selected' : ''}>Salto Weissbach</option>
+        <option value="Testo Salto" ${endereco.bairro == 'Testo Salto' ? 'selected' : ''}>Testo Salto</option>
+        <option value="Tribess" ${endereco.bairro == 'Tribess' ? 'selected' : ''}>Tribess</option>
+        <option value="Valparaíso" ${endereco.bairro == 'Valparaíso' ? 'selected' : ''}>Valparaíso</option>
+        <option value="Velha" ${endereco.bairro == 'Velha' ? 'selected' : ''}>Velha</option>
+        <option value="Velha Central" ${endereco.bairro == 'Velha Central' ? 'selected' : ''}>Velha Central</option>
+        <option value="Velha Grande" ${endereco.bairro == 'Velha Grande' ? 'selected' : ''}>Velha Grande</option>
+        <option value="Victor Konder" ${endereco.bairro == 'Victor Konder' ? 'selected' : ''}>Victor Konder</option>
+        <option value="Vila Formosa" ${endereco.bairro == 'Vila Formosa' ? 'selected' : ''}>Vila Formosa</option>
+        <option value="Vila Itoupava" ${endereco.bairro == 'Vila Itoupava' ? 'selected' : ''}>Vila Itoupava</option>
+        <option value="Vila Nova" ${endereco.bairro == 'Vila Nova' ? 'selected' : ''}>Vila Nova</option>
+        <option value="Vorstadt" ${endereco.bairro == 'Vorstadt' ? 'selected' : ''}>Vorstadt</option>
+    </select>
+</div>
+
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-lg">
                         <i class="bi bi-plus-circle"></i> Cadastrar
