@@ -488,7 +488,7 @@ a:focus {
 
 .animal_section {
   background-image: url(../images/dog-azulin.jpeg);
-  background-size:contain;
+  background-size:cover;
   color: black;
   background-repeat: no-repeat;
   background-color:  #A6A6A6;

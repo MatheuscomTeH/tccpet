@@ -1,7 +1,7 @@
 package web.model;
 
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +28,19 @@ public class Usuario {
 	private String role;
 	
 	
+	@OneToOne(mappedBy = "usuario")
+	private Cliente cliente;
 	
+	
+	
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 
 	public long getId() {
 		return id;

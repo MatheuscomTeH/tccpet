@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
+
 import org.springframework.stereotype.Repository;
 
 import web.model.Cliente;
@@ -39,6 +40,8 @@ public class ClienteDao {
 	public Cliente buscaPorId(long id) {
 		return manager.find(Cliente.class, id);
 	}
+	
+	
 
 	public void remove(long id) {
 		manager.createQuery("delete from Cliente c where c.id = :id").setParameter("id", id).executeUpdate();

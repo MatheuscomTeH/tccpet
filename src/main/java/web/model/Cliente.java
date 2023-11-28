@@ -1,11 +1,15 @@
 package web.model;
 
 
-import javax.persistence.CascadeType;
+
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -33,7 +37,18 @@ public class Cliente {
 	@OneToOne
 	private Usuario usuario;
 	
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    private List<Animal> animais;
 	
+	
+	public List<Animal> getAnimais() {
+		return animais;
+	}
+
+	public void setAnimais(List<Animal> animais) {
+		this.animais = animais;
+	}
+
 	public long getId() {
 		return id;
 	}

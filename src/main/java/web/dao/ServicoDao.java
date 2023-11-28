@@ -29,6 +29,7 @@ public class ServicoDao {
 		return manager.createQuery("select s from Servico s", Servico.class).getResultList();
 	}
 
+
 	public Servico buscaPorNome(String nome) {
 		try {
 			return manager.createQuery("SELECT s FROM Servico s WHERE s.nome = :nome", Servico.class)

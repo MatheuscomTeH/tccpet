@@ -6,250 +6,263 @@
 
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Hermann Pets</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>Hermann Pets</title>
 
 <!-- bootstrap core css -->
 <link rel="stylesheet" type="text/css"
-	href="<c:url value="/resources/vendor/bootstrap/css/bootstrap.min.css" />">
+	href="<c:url value="/resources/vendor/bootstrap/css/bootstrap.css" />">
+	
+	<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/vendor/bootstrap/css/bootstrap-icons.css" />">
+
 
 <!-- fonts style -->
-<link
+<link type="text/css"
 	href="<c:url value="https://fonts.googleapis.com/css?family=Open+Sans|Poppins:400,700&display=swap"/>"
 	rel="stylesheet">
 
-<!-- css-->
-<link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet" />
 
+
+<link type="text/css" href="<c:url value="/resources/css/estilo.css"/>"
+	rel="stylesheet" />
+
+
+<link type="text/css"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap"
+	rel="stylesheet">
+
+<link type="text/css"
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap"
+	rel="stylesheet">
+
+<link type="text/css"
+	href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap"
+	rel="stylesheet">
+
+<link type="text/css" rel="stylesheet"
+	href="<c:url value="/resources/icomoon/style.css"/>">
+
+<link type="text/css" rel="stylesheet"
+	href="<c:url value="/resources/css/owl.carousel.min.css"/>">
+
+<style>
+.container-servicos-center {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.info_section {
+	background-color: #A6A6A6;
+	color: #ffffff;
+	padding: 40px 0 75px 0;
+	font-family: "Open Sans", sans-serif;
+}
+
+.info_section .row>div {
+	margin-top: 35px;
+}
+
+.info_section h5 {
+	text-transform: uppercase;
+	margin-bottom: 25px;
+}
+
+.info_time p {
+	text-transform: uppercase;
+}
+
+.info_form input {
+	width: 100%;
+	border: none;
+	height: 40px;
+	margin-bottom: 10px;
+	padding-left: 25px;
+	background-color: #eaeaea;
+	outline: none;
+	color: #101010;
+}
+
+.info_form button {
+	width: 100%;
+	outline: none;
+	border: none;
+	color: #fff;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 4px 45px;
+	background-color: #78B8C6;
+	color: #A6A6A6;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	border: 1px solid #78B8C6;
+	border-radius: 0;
+}
+
+.info_form button:hover {
+	background-color: transparent;
+	color: #78B8C6;
+}
+
+.info_social .social_container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.info_social .social_container a {
+	margin: 0 5px;
+}
+
+.info_social .social_container a img {
+	width: 35px;
+}
+
+.info_contact>div {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin: 10px 0;
+}
+
+.info_contact>div img {
+	height: auto;
+	margin-right: 12px;
+}
+
+.info_contact>div p {
+	margin: 0;
+}
+
+/* footer section*/
+.footer_section {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	background-color: #78B8C6;
+}
+
+.footer_section p {
+	color: #ffffff;
+	margin: 0;
+	padding: 25px 0 20px 0;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.footer_section a {
+	color: #ffffff;
+}
+</style>
 
 </head>
 
 <body>
-  
-  <div class="hero_area_agendamento">
 
-    <!-- header -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.html">
-            <img src="<c:url value="/resources/images/logotcc.jpeg"/>" alt="Logo da petshop">
-          </a>
-          <div class="" id="">
-            <div class="User_option">
-              <form class="form-inline my-2  mb-3 mb-lg-0">
-                <input type="search" placeholder="Search">
-                <button class="btn   my-sm-0 nav_search-btn" type="submit"></button>
-              </form>
-            </div>
-
-            <div class="custom_menu-btn">
-              <button class="open__nav__btn">
-                <span class="s-1">
-
-                </span>
-                <span class="s-2">
-
-                </span>
-                <span class="s-3">
-
-                </span>
-              </button>
-            </div>
-            <div id="myNav" class="overlay">
-              <div class="overlay-content">
-                <a href="index.html">Página Inicial</a>
-                <a href="about.html">Sobre nós</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!--final da header-->
-
-    <section class="about_section layout_padding">
-      <div class="container">
-        <div class="detail-box">
-          <div class="heading_container">
-            <h2>
-              ANIMAIS QUE ATENDEMOS!
-            </h2>
-          </div>
-
-    </section>
-
-    <section class="animal_section layout_padding">
-      <div class="container">
-        <div class="animal_container">
-          <div class="box b1">
-            <div class="img-box">
-              <img src="<c:url value="/resources/images/dog.jpg"/>" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                Cachorrinhos de pequeno e grande porte
-              </h5>
-              <p>
-                Venha conhecer nossos serviços!
-              </p>
-            </div>
-          </div>
-          <div class="box b2">
-            <div class="img-box">
-              <img src="<c:url value="/resources/images/cavalo.jpg"/>"" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                Deixe seu cavalo lindo!
-              </h5>
-              <p>
-                Venha conhecer nossos servicos!
-              </p>
-            </div>
-          </div>
-          <div class="box b1">
-            <div class="img-box">
-              <img src="<c:url value="/resources/images/chinchila.jpg"/>" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                Roedores
-              </h5>
-              <p>
-                Temos tratamentos especiais com chinchilas!
-              </p>
-            </div>
-          </div>
-          <div class="box b2">
-            <div class="img-box">
-              <img src="<c:url value="/resources/images/cat.jpg"/>" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                Gatinhoos
-              </h5>
-              <p>
-                Venha conhecer nossos servicos!
-              </p>
-            </div>
-          </div>
-        </div>
-    </section>
-    <select class="wide">
-      <option data-display="Selecione">SELECIONE</option>
-      <option value="1">CACHORRO</option>
-      <option value="2">GATO</option>
-      <option value="3">ROEDORES</option>
-      <option value="4">CAVALO</option>
-    </select>
-  </div>
+	<c:import url="components/sidebar.jsp" />
 
 
-  <section class="agendamento d-flex w-100 p-5 row row-cols-1 row-cols-lg-2">
 
-    <form class="col-lg-8" action="php/processar_agendamento.php" method="POST"> 
+	<section
+		class="agendamento d-flex w-100 p-5 row row-cols-1 row-cols-lg-2">
 
-        <ul id="servicos" class="row row-cols-2 row-cols-lg-2">
-          
-          
-        </ul> 
-       
+		<form class="col-lg-8" action="php/processar_agendamento.php"
+			method="POST">
+			<div class="container-servicos-center">
 
-      </form>
+				<c:forEach var="servico" items="${servicos}" varStatus="loop">
+					<!--servico-->
+					<div class="card" style="width: 18rem; text-align: center">
+						<div class="card-body">
+							<h5 class="card-title">${servico.titulo}</h5>
+							<p class="card-text">${servico.descricao}</p>
+							<a href="#" data-toggle="modal"
+								data-target="#modalCart${loop.index}"
+								style="background-color: #78B8C6" class="btn">Agendar</a>
+						</div>
+					</div>
 
-      <figure class="col-lg-4">
-        <img src="<c:url value="/resources/images/doguinho.png"/>" alt="foto lateral de um cachorro" class="img-fluid ">
-      </figure>
-   
+					<div class="modal fade" id="modalCart${loop.index}" tabindex="-1"
+						role="dialog" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<!--Header-->
+								<div class="modal-header">
+									<h4 class="modal-title" id="myModalLabel">Agendar
+										${servico.nome}</h4>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">×</span>
+									</button>
+								</div>
+								<!--Body-->
+								<div class="modal-body">
+									<div class="form-group">
+										<label for="data">Data:</label> <input type="date"
+											class="form-control" id="data" name="data">
+									</div>
 
+									<div class="form-group">
+										<label for="hora">Hora:</label> <input type="time"
+											class="form-control" id="hora" name="hora">
+									</div>
 
-    </section>
-
-
- <section class="info_section ">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-lg-3">
-        <div class="info_contact">
-          <h5>
-            Contato
-          </h5>
-          <div>
-            <img src="<c:url value="/resources/images/call.png"/>" alt="" />
-            <p>
-              +01 1234567890
-            </p>
-          </div>
-          <div>
-            <img src="<c:url value="/resources/images/mail.png"/>" alt="" />
-            <p>
-              ceduphh@gmail.com
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="info_time">
-          <h5>
-            Hermann Pet aberto
-          </h5>
-          <div>
-            <p>
-            Segunda-feira à Sábado 
-            </p>
-          </div>
-          <div>
-            <p>
-              07:00h até as 18:00h              
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="info_social">
-          <h5>
-            Acesse nossas redes sociais:
-          </h5>
-          <div class="social_container">
-            <div>
-              <a href="">
-                <img src="<c:url value="/resources/images/fb.png"/>" alt="" />
-              </a>
-            </div>
-            <div>
-              <a href="">
-                <img src="<c:url value="/resources/images/twitter.png"/>" alt="" />
-              </a>
-            </div>
-            <div>
-              <a href="">
-                <img src="<c:url value="/resources/images/linkedin.png"/>" alt="" />
-              </a>
-            </div>
-            <div>
-              <a href="">
-                <img src="<c:url value="/resources/images/instagram.png"/>" alt="" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <!-- Popper.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="<c:url value="/resources/vendor/bootstrap/css/bootstrap.min.css" />"></script>
+									<div class="form-group">
+										<label for="mensagem">Descrição:</label>
+										<textarea class="form-control" id="mensagem" name="mensagem"
+											rows="5" placeholder="Digite sua mensagem aqui..."></textarea>
+									</div>
+								</div>
+								<!--footer-->
 
 
-    
+								<div class="modal-footer">
+									<button type="button" class="btn btn-outline-primary"
+										data-dismiss="modal">Close</button>
+									<button class="btn btn-primary">Checkout</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
 
-</body>
 
-</html>
+
+		</form>
+
+		<figure class="col-lg-4" style="margin-left: -100px;">
+			<img src="<c:url value="/resources/images/doguinho.png"/>"
+				alt="foto lateral de um cachorro" class="img-fluid ">
+		</figure>
+
+
+
+	</section>
+
+
+
+
+
+
+
+
+
+
+	<c:import url="components/rodape.jsp" />

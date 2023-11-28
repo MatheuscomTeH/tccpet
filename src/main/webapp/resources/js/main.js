@@ -1,23 +1,36 @@
-import { construirAgendamentosUsuario } from "./constructors/contruirAgendamentos";
-import { openNav } from "./openNav";
-import { redirecionarUsuario } from "./redirecionarUsuario";
-import { $ } from "./utilities";
-import { verificarDadosJaCadastrados } from "./verificarDadosJaCadastrados";
-import { verificarSeJaExisteUsuario } from "./verificarLogin";
+$(function() {
 
+  'use strict';
 
+  $('.js-menu-toggle').click(function(e) {
 
-$(".open__nav__btn").addEventListener("click", openNav);
+  	var $this = $(this);
 
-async function inicializarPagina() {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  await verificarSeJaExisteUsuario("usuario");
-}
+  	
 
-inicializarPagina();
+  	if ( $('body').hasClass('show-sidebar') ) {
+  		$('body').removeClass('show-sidebar');
+  		$this.removeClass('active');
+  	} else {
+  		$('body').addClass('show-sidebar');	
+  		$this.addClass('active');
+  	}
 
-redirecionarUsuario();
+  	e.preventDefault();
 
-construirAgendamentosUsuario();
+  });
 
-verificarDadosJaCadastrados();
+  // click outisde offcanvas
+	$(document).mouseup(function(e) {
+    var container = $(".sidebar");
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      if ( $('body').hasClass('show-sidebar') ) {
+				$('body').removeClass('show-sidebar');
+				$('body').find('.js-menu-toggle').removeClass('active');
+			}
+    }
+	}); 
+
+    
+
+});
