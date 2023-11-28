@@ -82,7 +82,7 @@
 	</div>
 
 </aside>
-<main>
+<main style="display: flex; align-items: center;">
 	<div class="container center-v">
 
 		<div class="card border-light mb-3">
