@@ -50,7 +50,7 @@
 							href="#" role="button" aria-haspopup="true" aria-expanded="false">Agendamentos</a>
 
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="<c:url value="/funcionario/lista_agendamentoP"/>">Pendentes</a>
+								<a class="dropdown-item" href="<c:url value="/funcionario/lista_agendamento"/>">Pendentes</a>
 								<a class="dropdown-item" href="<c:url value="/funcionario/lista_agendamentoC"/>">Concluidas</a>
 
 							</div></li>

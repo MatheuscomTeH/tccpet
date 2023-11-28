@@ -141,7 +141,7 @@ public class FuncionarioController {
 				agendamento.setStatus("ACEITO");
 			}
 			
-			return "redirect:lista-agendamento";
+			return "redirect:lista_agendamento";
 			
 		}
 		
@@ -158,7 +158,7 @@ public class FuncionarioController {
 				agendamento.setStatus("Recusado");
 			}
 			
-			return "redirect:lista-agendamento";
+			return "redirect:lista_agendamento";
 			
 		}
 }
