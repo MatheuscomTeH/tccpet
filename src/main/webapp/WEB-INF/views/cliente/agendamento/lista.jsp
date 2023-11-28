@@ -149,7 +149,7 @@
 													data-bs-target="#modal${agendamento.id}">
 													<i class="bi bi-trash"></i>
 												</button>
-												<div class="modal fade" id="modal${agendament.id}" tabindex="-1">
+												<div class="modal fade" id="modal${agendamento.id}" tabindex="-1">
 													<div class="modal-dialog" role="document">
 														<div class="modal-content">
 															<div class="modal-header">
@@ -167,7 +167,7 @@
 															</div>
 															<div class="modal-footer">
 																<a
-																	href="<c:url value="/agendamento/remove-agendamento?id=${agendamento.id}" />"
+																	href="<c:url value="/cliente/remove-agendamento?id=${agendamento.id}" />"
 																	class="btn btn-danger"> <i class="bi bi-trash"></i>
 																	Excluir
 																</a>
