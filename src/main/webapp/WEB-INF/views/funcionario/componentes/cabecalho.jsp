@@ -47,13 +47,11 @@
 							
 							<li class="nav-item  dropdown"><a
 							class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-							href="#" role="button" aria-haspopup="true" aria-expanded="false">Solicitações</a>
+							href="#" role="button" aria-haspopup="true" aria-expanded="false">Agendamentos</a>
 
 							<div class="dropdown-menu">
-								<a class="dropdown-item"
-									href="<c:url value="/solicitacao/lista_incompleta"/>">Incompletas</a>
-								<a class="dropdown-item" href="<c:url value="/solicitacao/lista_pendente"/>">Pendentes</a>
-								<a class="dropdown-item" href="<c:url value="/solicitacao/lista_concluida"/>">Concluidas</a>
+								<a class="dropdown-item" href="<c:url value="/funcionario/lista_agendamentoP"/>">Pendentes</a>
+								<a class="dropdown-item" href="<c:url value="/funcionario/lista_agendamentoC"/>">Concluidas</a>
 
 							</div></li>
 					</ul>

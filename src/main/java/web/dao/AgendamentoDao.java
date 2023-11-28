@@ -36,6 +36,13 @@ public class AgendamentoDao {
 				.getResultList();
 	}
 	
+	public List<Agendamento> listarAgendamentosSemFuncionarios() {
+	    String jpql = "select a from Agendamento a "
+	            + "where a.funcionario is null";
+
+	    return manager.createQuery(jpql, Agendamento.class)
+	            .getResultList();
+	}
 
 	public Agendamento buscaPorId(long id) {
 		return manager.find(Agendamento.class, id);

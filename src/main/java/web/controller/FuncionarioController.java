@@ -4,13 +4,19 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import web.dao.AgendamentoDao;
 import web.dao.ClienteDao;
+import web.dao.FuncionarioDao;
 import web.dao.UsuarioDao;
+import web.model.Agendamento;
 import web.model.Cliente;
 import web.model.Role;
 import web.model.Usuario;
@@ -22,6 +28,12 @@ public class FuncionarioController {
 
 		@Autowired
 		private UsuarioDao usuarioDao;
+		
+		@Autowired
+		private FuncionarioDao funcionarioDao;
+		
+		@Autowired
+		private AgendamentoDao agendamentoDao;
 
 		@Autowired
 		private ClienteDao clienteDao;
@@ -104,5 +116,49 @@ public class FuncionarioController {
 
 			return "redirect:lista-cliente";
 
+		}
+		
+		//agendamento
+		
+		@RequestMapping("lista_agendamentoP")
+		public String listaAgendamentoPendente(Model model) {
+			
+			model.addAttribute("agendamentos",agendamentoDao.listarAgendamentosSemFuncionarios());
+			return "funcionario/agendamento/lista";
+			
+		}
+		
+		@RequestMapping("aceitar-agendamento")
+		public String aceitarAgendamento(long id) {
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			String email = authentication.getName();
+			Usuario usuario = usuarioDao.findByEmail(email);
+			
+			
+			if(agendamentoDao.buscaPorId(id) != null) {
+				Agendamento agendamento = agendamentoDao.buscaPorId(id) ;
+				agendamento.setFuncionario(funcionarioDao.buscarPorIdUsuario(usuario.getId()));
+				agendamento.setStatus("ACEITO");
+			}
+			
+			return "redirect:lista-agendamentoP";
+			
+		}
+		
+		@RequestMapping("recusar-agendamento")
+		public String recusarAgendamento(long id) {
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			String email = authentication.getName();
+			Usuario usuario = usuarioDao.findByEmail(email);
+			
+			
+			if(agendamentoDao.buscaPorId(id) != null) {
+				Agendamento agendamento = agendamentoDao.buscaPorId(id) ;
+				agendamento.setFuncionario(funcionarioDao.buscarPorIdUsuario(usuario.getId()));
+				agendamento.setStatus("Recusado");
+			}
+			
+			return "redirect:lista-agendamentoP";
+			
 		}
 }

@@ -48,4 +48,15 @@ public class FuncionarioDao {
 		}
 	}
 	
+	public Funcionario buscarPorIdUsuario(long idUsuario) {
+	    try {
+	        String jpql = "SELECT f FROM Funcionario f WHERE f.usuario.id = :idUsuario";
+	        return manager.createQuery(jpql, Funcionario.class)
+	                .setParameter("idUsuario", idUsuario)
+	                .getSingleResult();
+	    } catch (NoResultException ex) {
+	        return null;
+	    }
+	}
+	
 }
