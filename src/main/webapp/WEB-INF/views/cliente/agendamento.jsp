@@ -55,6 +55,7 @@
 	display: flex;
 	gap: 20px;
 	flex-wrap: wrap;
+	padding-left:100px;
 }
 
 .info_section {
@@ -168,6 +169,10 @@
 .footer_section a {
 	color: #ffffff;
 }
+
+form{
+
+}
 </style>
 
 </head>
@@ -222,6 +227,7 @@
 										<!--Body-->
 										<div class="modal-body">
 											<input name="cliente.id" value="${cliente.id}" hidden>
+											<input name="servico.id" value="${servico.id}" hidden>
 											<div class="form-check">
 												<input type="checkbox" class="form-check-input"
 													id="servicoLevaTras" name="levaTraz" value="true">
@@ -270,8 +276,8 @@
 
 										<div class="modal-footer">
 											<button type="button" class="btn btn-outline-primary"
-												data-dismiss="modal">Close</button>
-											<button class="btn btn-primary">Checkout</button>
+												data-dismiss="modal">Fechar</button>
+											<button class="btn btn-primary">Agendar</button>
 										</div>
 									</div>
 								</div>

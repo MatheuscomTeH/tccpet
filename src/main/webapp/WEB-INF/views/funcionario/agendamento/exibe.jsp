@@ -20,6 +20,11 @@
 							<th width="30%">ID</th>
 							<td>${agendamento.id}</td>
 						</tr>
+						
+						<tr>
+							<th>Serviço</th>
+							<td  style="font-weight: bold; color: blue;">${agendamento.servico.nome}</td>
+						</tr>
 
 						<tr>
 							<th>Nome do animal</th>

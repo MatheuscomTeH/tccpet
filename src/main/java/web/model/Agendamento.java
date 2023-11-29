@@ -53,11 +53,25 @@ public class Agendamento {
     private String descricao;
     
     private String status;
+    
+    @ManyToOne
+    private Servico servico;
+    
+    
+ 
 
     // Getters and setters
 
     public String getStatus() {
 		return status;
+	}
+
+	public Servico getServico() {
+		return servico;
+	}
+
+	public void setServico(Servico servico) {
+		this.servico = servico;
 	}
 
 	public void setStatus(String status) {

@@ -262,7 +262,7 @@ public class ClienteController {
     	 }
     	 
     	 agendamento.setStatus("Pendente");
-    	agendamentoDao.adiciona(agendamento);
+    	 agendamentoDao.adiciona(agendamento);
     	return "redirect:lista-agendamento";
     }
     
