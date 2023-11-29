@@ -47,12 +47,42 @@
 									data-bs-placement="bottom" title="Exibir"> <i
 											class="bi bi-eye"></i>
 								</a>
-								<a href="aceitar-agendamento?id=${agendamento.id}" data-toggle="tooltip"
-									data-bs-placement="bottom" title="Aceitar" class="btn btn-success btn-sm" role="button"><i class="bi bi-check"></i></a>
-
-							 <a href="recusar-agendamento?id=${agendamento.id}" data-toggle="tooltip"
-									data-bs-placement="bottom" title="Recusar" class="btn btn-danger btn-sm" 
-									role="button"><i class="bi bi-x"></i></a></td>
+								<button type="button" class="btn btn-danger btn-sm"
+										data-toggle="tooltip" data-bs-placement="bottom"
+										title="Excluir" data-bs-toggle="modal"
+										data-bs-target="#modal${agendamento.id}">
+										<i class="bi bi-trash"></i>
+									</button>
+									<div class="modal fade" id="modal${agendamento.id}" tabindex="-1">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title">Exclusão do agendamento</h5>
+													<button type="button" class="btn-close"
+														data-bs-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true"></span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<p>
+														Deseja realmente excluir o agendamento <br>ID (${agendamento.id})
+														 ?
+													</p>
+												</div>
+												<div class="modal-footer">
+													<a href="remove-agendamento?id=${agendamento.id}"
+														class="btn btn-danger"> <i class="bi bi-trash"></i>
+														Excluir
+													</a>
+													<button type="button" class="btn btn-secondary"
+														data-bs-dismiss="modal">
+														<i class="bi bi-x"></i>
+														Fechar
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
 							</tr>
 						</c:forEach>
 					</tbody>

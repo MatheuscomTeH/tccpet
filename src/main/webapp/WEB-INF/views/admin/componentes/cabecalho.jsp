@@ -13,6 +13,23 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/vendor/data-table/css/datatables.min.css" />">
 
+<style>
+
+body{
+height:100vh;
+display:flex;
+flex-direction:column;
+}
+.centralizar{
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+
+
+</style>
 
 </head>
 <body>

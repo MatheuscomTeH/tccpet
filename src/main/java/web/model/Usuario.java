@@ -31,8 +31,11 @@ public class Usuario {
 	@OneToOne(mappedBy = "usuario")
 	private Cliente cliente;
 	
+
 	
 	
+	
+
 
 	public Cliente getCliente() {
 		return cliente;

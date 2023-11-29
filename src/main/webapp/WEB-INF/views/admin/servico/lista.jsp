@@ -7,7 +7,7 @@
 <title>Lista Serviço</title>
 
 <c:import url="../componentes/cabecalho.jsp" />
-<main>
+<main class="centralizar">
 	<div class="container center-v">
 
 		<div class="card border-light mb-3">

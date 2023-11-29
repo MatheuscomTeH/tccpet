@@ -260,7 +260,7 @@ public class ClienteController {
     	 if(result.hasErrors()) {
     	  return"redirect:index";
     	 }
-    
+    	 
     	 agendamento.setStatus("Pendente");
     	agendamentoDao.adiciona(agendamento);
     	return "redirect:lista-agendamento";

@@ -12,6 +12,24 @@
 	href="<c:url value="/resources/vendor/bootstrap-icons/bootstrap-icons.min.css" />">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/vendor/data-table/css/datatables.min.css" />">
+	
+<style>
+
+body{
+height:100vh;
+display:flex;
+flex-direction:column;
+}
+.centralizar{
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+
+
+</style>
 
 
 </head>
@@ -51,8 +69,8 @@
 
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="<c:url value="/funcionario/lista_agendamento"/>">Pendentes</a>
-								<a class="dropdown-item" href="<c:url value="/funcionario/lista_agendamentoC"/>">Concluidas</a>
-
+								<a class="dropdown-item" href="<c:url value="/funcionario/lista_agendamentoA"/>">Aceitos</a>
+								<a class="dropdown-item" href="<c:url value="/funcionario/lista_agendamentoC"/>">Finalizados</a>
 							</div></li>
 					</ul>
 					<div>

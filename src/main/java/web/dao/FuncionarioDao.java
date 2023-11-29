@@ -5,8 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
+import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
 
 import web.model.Funcionario;
 
@@ -47,6 +48,18 @@ public class FuncionarioDao {
 			return null;
 		}
 	}
+	
+	public Funcionario findFuncionarioByUsuarioEmail(String email) {
+        String jpql = "SELECT f FROM Funcionario f JOIN f.usuario u WHERE u.email = :email";
+        Query query = manager.createQuery(jpql, Funcionario.class);
+        query.setParameter("email", email);
+
+        try {
+            return (Funcionario) query.getSingleResult();
+        } catch (javax.persistence.NoResultException e) {
+            return null; 
+        }
+    }
 	
 	public Funcionario buscarPorIdUsuario(long idUsuario) {
 	    try {

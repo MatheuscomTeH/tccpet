@@ -18,6 +18,7 @@ import web.dao.FuncionarioDao;
 import web.dao.UsuarioDao;
 import web.model.Agendamento;
 import web.model.Cliente;
+import web.model.Funcionario;
 import web.model.Role;
 import web.model.Usuario;
 
@@ -43,13 +44,19 @@ public class FuncionarioController {
 
 
 		@RequestMapping("index")
-		public String home() {
+		public String home(Model model) {
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			String email = authentication.getName();
+			Usuario usuario = usuarioDao.findByEmail(email);
+			Funcionario funcionario = funcionarioDao.findFuncionarioByUsuarioEmail(usuario.getEmail());
+			model.addAttribute("funcionario",funcionario);
 			return "funcionario/index";
 
 		}
 
 		@RequestMapping("/novo-cliente")
 		public String novoCliente() {
+			
 			return "funcionario/cliente/novo";
 		}
 
@@ -128,6 +135,30 @@ public class FuncionarioController {
 			
 		}
 		
+		@RequestMapping("lista_agendamentoA")
+		public String listaAgendamentoAceito(Model model) {
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			String email = authentication.getName();
+			Usuario usuario = usuarioDao.findByEmail(email);
+			Funcionario funcionario = funcionarioDao.findFuncionarioByUsuarioEmail(usuario.getEmail());
+			
+			model.addAttribute("agendamentos",agendamentoDao.listarAgendamentosPorIdFuncionarioEStatus(funcionario.getId()));
+			return "funcionario/agendamento/listaA";
+			
+		}
+		
+		@RequestMapping("lista_agendamentoC")
+		public String listaAgendamentoConcluido(Model model) {		
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			String email = authentication.getName();
+			Usuario usuario = usuarioDao.findByEmail(email);
+			Funcionario funcionario = funcionarioDao.findFuncionarioByUsuarioEmail(usuario.getEmail());
+
+			model.addAttribute("agendamentos",agendamentoDao.listarAgendamentosPorIdFuncionarioEStatusConcluido(funcionario.getId()));
+			return "funcionario/agendamento/listaC";
+			
+		}
+		
 		@RequestMapping("aceitar-agendamento")
 		public String aceitarAgendamento(long id) {
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -138,11 +169,34 @@ public class FuncionarioController {
 			if(agendamentoDao.buscaPorId(id) != null) {
 				Agendamento agendamento = agendamentoDao.buscaPorId(id) ;
 				agendamento.setFuncionario(funcionarioDao.buscarPorIdUsuario(usuario.getId()));
-				agendamento.setStatus("ACEITO");
+				agendamento.setStatus("Aceito");
 			}
 			
 			return "redirect:lista_agendamento";
 			
+		}
+		
+		@RequestMapping("concluir-agendamento")
+		public String concluirAgendamento(long id){
+			
+			if(agendamentoDao.buscaPorId(id) != null) {
+				Agendamento agendamento = agendamentoDao.buscaPorId(id) ;
+				agendamento.setDevolvido(true);
+				agendamento.setStatus("Concluido");
+			}
+			
+			return "redirect:lista_agendamentoA";
+		}
+		
+		@RequestMapping("cancelar-agendamento")
+		public String cancelarAgendamento(long id){
+				
+			if(agendamentoDao.buscaPorId(id) != null) {
+				Agendamento agendamento = agendamentoDao.buscaPorId(id) ;
+				agendamento.setStatus("Cancelado");
+			}
+			
+			return "redirect:lista_agendamentoA";
 		}
 		
 		@RequestMapping("recusar-agendamento")
@@ -159,6 +213,30 @@ public class FuncionarioController {
 			}
 			
 			return "redirect:lista_agendamento";
+			
+		}
+		
+		
+		@RequestMapping("exibe-agendamento")
+		public String exbibeAgendamento(long id, Model model) {
+			
+			if(agendamentoDao.buscaPorId(id) != null) {
+				
+				model.addAttribute("agendamento",agendamentoDao.buscaPorId(id));
+				return "funcionario/agendamento/exibe";
+			}
+			
+			return "redirect:lista_agendamento";
+			
+		}
+		
+		@RequestMapping("remove-agendamento")
+		public String removeAgendamento(long id) {
+			if(agendamentoDao.buscaPorId(id) != null) {
+				agendamentoDao.remove(id);
+			}
+			
+			return "redirect:lista_agendamentoC";
 			
 		}
 }

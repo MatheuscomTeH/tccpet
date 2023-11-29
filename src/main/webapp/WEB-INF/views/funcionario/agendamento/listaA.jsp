@@ -47,11 +47,11 @@
 									data-bs-placement="bottom" title="Exibir"> <i
 											class="bi bi-eye"></i>
 								</a>
-								<a href="aceitar-agendamento?id=${agendamento.id}" data-toggle="tooltip"
-									data-bs-placement="bottom" title="Aceitar" class="btn btn-success btn-sm" role="button"><i class="bi bi-check"></i></a>
+								<a href="concluir-agendamento?id=${agendamento.id}" data-toggle="tooltip"
+									data-bs-placement="bottom" title="Concluir" class="btn btn-primary btn-sm" role="button"><i class="bi bi-check"></i></a>
 
-							 <a href="recusar-agendamento?id=${agendamento.id}" data-toggle="tooltip"
-									data-bs-placement="bottom" title="Recusar" class="btn btn-danger btn-sm" 
+							 <a href="cancelar-agendamento?id=${agendamento.id}" data-toggle="tooltip"
+									data-bs-placement="bottom" title="Cancelar" class="btn btn-danger btn-sm" 
 									role="button"><i class="bi bi-x"></i></a></td>
 							</tr>
 						</c:forEach>

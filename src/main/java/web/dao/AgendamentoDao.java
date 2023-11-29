@@ -43,6 +43,27 @@ public class AgendamentoDao {
 	    return manager.createQuery(jpql, Agendamento.class)
 	            .getResultList();
 	}
+	
+	public List<Agendamento> listarAgendamentosPorIdFuncionarioEStatus(Long idFuncionario) {
+	    String jpql = "select a from Agendamento a "
+	            + "where a.funcionario.id = :idFuncionario "
+	            + "and a.status = 'Aceito'";
+
+	    return manager.createQuery(jpql, Agendamento.class)
+	            .setParameter("idFuncionario", idFuncionario)
+	            .getResultList();
+	}
+	
+	public List<Agendamento> listarAgendamentosPorIdFuncionarioEStatusConcluido(Long idFuncionario) {
+	    String jpql = "select a from Agendamento a "
+	            + "where a.funcionario.id = :idFuncionario "
+	            + "and (a.status = 'Concluido' or a.status = 'Recusado' or a.status = 'Cancelado')";
+
+	    return manager.createQuery(jpql, Agendamento.class)
+	            .setParameter("idFuncionario", idFuncionario)
+	            .getResultList();
+	}
+
 
 	public Agendamento buscaPorId(long id) {
 		return manager.find(Agendamento.class, id);
