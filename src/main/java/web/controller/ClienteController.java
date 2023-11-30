@@ -59,10 +59,13 @@ public class ClienteController {
 
 	@RequestMapping("index")
 	public String home(Model model) {
+		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String email = authentication.getName();
 		Cliente cliente = usuarioDao.findByEmail(email).getCliente();
-		
+		if(enderecoDao.listarEnderecoDoCliente(cliente.getId()).size() < 1) {
+			return "redirect:endereco-novo";
+		}
 		model.addAttribute("listaDeEnderecos",enderecoDao.listarEnderecoDoCliente(cliente.getId()));
 		model.addAttribute("servicos", servicoDao.listar());
 		model.addAttribute("cliente", cliente);
@@ -207,7 +210,13 @@ public class ClienteController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String email = authentication.getName();
 		endereco.setCliente(usuarioDao.findByEmail(email).getCliente());
+		if(enderecoDao.listarEnderecoDoCliente(usuarioDao.findByEmail(email).getCliente().getId()).size() == 0) {
+			enderecoDao.adiciona(endereco);
+			return "redirect:index";
+			
+		}
 		enderecoDao.adiciona(endereco);
+		
 		return "redirect:lista-endereco";
 
 	}

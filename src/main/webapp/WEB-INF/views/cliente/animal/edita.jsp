@@ -71,18 +71,11 @@
 					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
 					href="<c:url value="lista-animal"/>"><i
 						style="margin-right: 10px" class="bi bi-github"></i>Meus pets</a></li>
-				<li
+						<li
 					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
-					href="#"><span style="margin-right: 10px"
-						class="icon-notifications mr-3"></span>Notifications</a></li>
-				<li
-					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
-					href="#"><span style="margin-right: 10px"
-						class="icon-location-arrow mr-3"></span>Direct</a></li>
-				<li
-					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
-					href="#"><span style="margin-right: 10px"
-						class="icon-pie-chart mr-3"></span>Stats</a></li>
+					href="<c:url value="lista-endereco"/>"><i
+						style="margin-right: 10px" class="bi bi-github"></i>Meus pets</a></li>
+				
 				<li
 					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
 					href="<c:url value="/logout"/>"><span

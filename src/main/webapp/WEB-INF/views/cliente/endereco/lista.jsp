@@ -50,6 +50,139 @@
 
 <link type="text/css" rel="stylesheet"
 	href="<c:url value="/resources/css/owl.carousel.min.css"/>">
+	
+<style>
+.container-servicos-center {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+	padding-left:100px;
+}
+
+.info_section {
+	background-color: #A6A6A6;
+	color: #ffffff;
+	padding: 40px 0 75px 0;
+	font-family: "Open Sans", sans-serif;
+}
+
+.info_section .row>div {
+	margin-top: 35px;
+}
+
+.info_section h5 {
+	text-transform: uppercase;
+	margin-bottom: 25px;
+}
+
+.info_time p {
+	text-transform: uppercase;
+}
+
+.info_form input {
+	width: 100%;
+	border: none;
+	height: 40px;
+	margin-bottom: 10px;
+	padding-left: 25px;
+	background-color: #eaeaea;
+	outline: none;
+	color: #101010;
+}
+
+.info_form button {
+	width: 100%;
+	outline: none;
+	border: none;
+	color: #fff;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 4px 45px;
+	background-color: #78B8C6;
+	color: #A6A6A6;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	border: 1px solid #78B8C6;
+	border-radius: 0;
+}
+
+.info_form button:hover {
+	background-color: transparent;
+	color: #78B8C6;
+}
+
+.info_social .social_container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.info_social .social_container a {
+	margin: 0 5px;
+}
+
+.info_social .social_container a img {
+	width: 35px;
+}
+
+.info_contact>div {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin: 10px 0;
+}
+
+.info_contact>div img {
+	height: auto;
+	margin-right: 12px;
+}
+
+.info_contact>div p {
+	margin: 0;
+}
+
+/* footer section*/
+.footer_section {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	background-color: #78B8C6;
+}
+
+.footer_section p {
+	color: #ffffff;
+	margin: 0;
+	padding: 25px 0 20px 0;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.footer_section a {
+	color: #ffffff;
+}
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.centralizar {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+</style>
 </head>
 <body>
 
@@ -81,16 +214,9 @@
 							style="margin-right: 10px" class="bi bi-github"></i>Meus pets</a></li>
 					<li
 						style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
-						href="#"><span style="margin-right: 10px"
-							class="icon-notifications mr-3"></span>Notifications</a></li>
-					<li
-						style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
-						href="#"><span style="margin-right: 10px"
-							class="icon-location-arrow mr-3"></span>Direct</a></li>
-					<li
-						style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
-						href="#"><span style="margin-right: 10px"
-							class="icon-pie-chart mr-3"></span>Stats</a></li>
+						href="lista-endereco"><span style="margin-right: 10px"
+							class="icon-notifications mr-3"></span>Meus endereços</a></li>
+					
 					<li
 						style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
 						href="<c:url value="/logout"/>"><span
@@ -102,7 +228,7 @@
 
 	</aside>
 	
-			<main>
+			<main class="centralizar">
 				<div class="container center-v">
 
 					<div class="card border-light mb-3">

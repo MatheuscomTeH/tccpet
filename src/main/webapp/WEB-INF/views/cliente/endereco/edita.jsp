@@ -73,8 +73,8 @@
 						style="margin-right: 10px" class="bi bi-github"></i>Meus pets</a></li>
 				<li
 					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
-					href="#"><span style="margin-right: 10px"
-						class="icon-notifications mr-3"></span>Endereço</a></li>
+					href="lista-endereco"><span style="margin-right: 10px"
+						class="icon-notifications mr-3"></span>Meus endereços</a></li>
 				<li
 					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
 					href="#"><span style="margin-right: 10px"

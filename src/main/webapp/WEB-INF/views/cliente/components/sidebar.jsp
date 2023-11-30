@@ -20,9 +20,7 @@
 			
 				<li style="width:100%;border:0;border-radius:0;text-align:left"><a href="<c:url value="index"/>"><span style="margin-right:10px" class="icon-calendar mr-3"></span>Agendamento</a></li>
 				<li style="width:100%;border:0;border-radius:0;text-align:left"><a href="<c:url value="lista-animal"/>"><i style="margin-right:10px" class="bi bi-github"></i>Meus pets</a></li>
-				<li style="width:100%;border:0;border-radius:0;text-align:left"><a href="<c:url value="endereco-novo"/>"><span style="margin-right:10px" class="icon-notifications mr-3"></span>Meus Endereço</a></li>
-				<li style="width:100%;border:0;border-radius:0;text-align:left"><a href="#"><span style="margin-right:10px" class="icon-location-arrow mr-3"></span>Direct</a></li>
-				<li style="width:100%;border:0;border-radius:0;text-align:left"><a href="#"><span style="margin-right:10px" class="icon-pie-chart mr-3"></span>Stats</a></li>
+				<li style="width:100%;border:0;border-radius:0;text-align:left"><a href="<c:url value="lista-endereco"/>"><span style="margin-right:10px" class="icon-notifications mr-3"></span>Meus endereços</a></li>
 				<li style="width:100%;border:0;border-radius:0;text-align:left"><a href="<c:url value="/logout"/>"><span style="margin-right:10px" class="icon-sign-out mr-3"></span>Sign
 						out</a></li>
 			</ul>
