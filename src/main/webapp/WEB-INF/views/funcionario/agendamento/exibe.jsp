@@ -25,6 +25,11 @@
 							<th>Serviço</th>
 							<td  style="font-weight: bold; color: blue;">${agendamento.servico.nome}</td>
 						</tr>
+						
+						<tr>
+							<th>Preço</th>
+							<td  style="font-weight: bold; color: blue;">R$${agendamento.servico.preco}</td>
+						</tr>
 
 						<tr>
 							<th>Nome do animal</th>

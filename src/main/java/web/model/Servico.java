@@ -34,6 +34,17 @@ public class Servico {
 	@NotNull
 	private String descricao;
 
+	@NotNull
+	private long preco;
+	
+	public long getPreco() {
+		return preco;
+	}
+
+	public void setPreco(long preco) {
+		this.preco = preco;
+	}
+
 	public long getId() {
 		return id;
 	}

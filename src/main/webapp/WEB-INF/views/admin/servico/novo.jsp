@@ -45,6 +45,13 @@
 				<label for="descricao" class="form-label mt-4">Descricao</label>
 				<textarea class="form-control" name="descricao"id="exampleTextarea" rows="3"></textarea>
 			</div>
+			
+			<div class="form-group">
+				<label for="preco" class="form-label mt-4">Preço</label>
+				<input
+					type="number" class="form-control" name="preco" MAXLENGTH="255"
+					required>
+			</div>
 
 
 

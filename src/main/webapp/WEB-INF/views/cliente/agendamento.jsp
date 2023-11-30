@@ -143,6 +143,8 @@
 												style="font-size: 20px; font-family: Poppins, sans-serif; font-weight: bold;">${servico.titulo}</h5>
 											<p class="card-text"
 												style="font-family: Poppins, sans-serif; font-size: 14px; line-height: 1.2; color: black">${servico.descricao}</p>
+												<p class="card-text"
+												style="font-family: Poppins, sans-serif; font-size: 14px; line-height: 1.2; color: black">Preço: R$${servico.preco}</p>
 											<a data-toggle="modal" data-target="#modalCart${loop.index}"
 												style="background-color: #78B8C6; margin-top: 35px; border-radius: 0px; padding: 10px 45px; color: #fff;"
 												class="btn">Agendar</a>

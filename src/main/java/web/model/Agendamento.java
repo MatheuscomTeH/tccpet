@@ -22,6 +22,7 @@ public class Agendamento {
     private Long id;
 
     @OneToOne
+    @NotNull
     @JoinColumn(name = "animal_id")
     private Animal animal;
 
