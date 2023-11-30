@@ -71,11 +71,15 @@
 					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
 					href="<c:url value="lista-animal"/>"><i
 						style="margin-right: 10px" class="bi bi-github"></i>Meus pets</a></li>
-						<li
+				<li
 					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
 					href="<c:url value="lista-endereco"/>"><i
 						style="margin-right: 10px" class="bi bi-github"></i>Meus pets</a></li>
-				
+				<li
+					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
+					href="<c:url value="lista-agendamento"/>"><span style="margin-right:10px" class="icon-calendar mr-3"></span>Meus
+						Agendamentos</a></li>
+
 				<li
 					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
 					href="<c:url value="/logout"/>"><span
@@ -101,14 +105,14 @@
 		<form action="altera-animal" method="POST" class="row g-3">
 
 			<security:csrfInput />
-			
+
 			<input hidden name="id" value="${animal.id}">
 
 			<!-- NOME -->
 			<div class="form-group">
-				<label for="nome" class="col-form-label">Nome</label> <input value="${animal.nome}"
-					type="text" class="form-control" name="nome" autofocus
-					MAXLENGTH="255" required>
+				<label for="nome" class="col-form-label">Nome</label> <input
+					value="${animal.nome}" type="text" class="form-control" name="nome"
+					autofocus MAXLENGTH="255" required>
 			</div>
 
 			<div class="form-group">
@@ -128,8 +132,8 @@
 
 			<div class="form-group">
 				<label for="idade" class="col-form-label">Idade</label> <input
-					type="number" value="${animal.idade}" class="form-control" name="idade" 
-				 required>
+					type="number" value="${animal.idade}" class="form-control"
+					name="idade" required>
 			</div>
 
 

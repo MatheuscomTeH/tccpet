@@ -77,12 +77,8 @@
 						class="icon-notifications mr-3"></span>Meus endereços</a></li>
 				<li
 					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
-					href="#"><span style="margin-right: 10px"
-						class="icon-location-arrow mr-3"></span>Direct</a></li>
-				<li
-					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
-					href="#"><span style="margin-right: 10px"
-						class="icon-pie-chart mr-3"></span>Stats</a></li>
+					href="<c:url value="lista-agendamento"/>"><span style="margin-right:10px" class="icon-calendar mr-3"></span>>Meus
+						Agendamentos</a></li>
 				<li
 					style="width: 100%; border: 0; border-radius: 0; text-align: left"><a
 					href="<c:url value="/logout"/>"><span
@@ -103,78 +99,80 @@
 </div>
 
 <main>
-    <div class="container">
-        <form action="altera-endereco" method="POST" class="row g-3">
+	<div class="container">
+		<form action="altera-endereco" method="POST" class="row g-3">
 
-            <security:csrfInput />
+			<security:csrfInput />
 
-            <input hidden name="id" value="${endereco.id}">
+			<input hidden name="id" value="${endereco.id}">
 
-            <!-- RUA -->
-            <div class="form-group">
-                <label for="rua" class="col-form-label">Rua</label>
-                <input value="${endereco.rua}" type="text" class="form-control" name="rua" autofocus MAXLENGTH="255" required>
-            </div>
+			<!-- RUA -->
+			<div class="form-group">
+				<label for="rua" class="col-form-label">Rua</label> <input
+					value="${endereco.rua}" type="text" class="form-control" name="rua"
+					autofocus MAXLENGTH="255" required>
+			</div>
 
-            <!-- NÚMERO -->
-            <div class="form-group">
-                <label for="numero" class="col-form-label">Número</label>
-                <input value="${endereco.numero}" type="text" class="form-control" name="numero" required>
-            </div>
+			<!-- NÚMERO -->
+			<div class="form-group">
+				<label for="numero" class="col-form-label">Número</label> <input
+					value="${endereco.numero}" type="text" class="form-control"
+					name="numero" required>
+			</div>
 
-            <!-- BAIRRO -->
-            <div class="container mt-5">
-                <label for="bairro" class="form-label">Selecione o Bairro:</label>
-                <select class="form-select" id="bairro" name="bairro">
-                    <option value="Água Verde">Água Verde</option>
-                    <option value="Badenfurt">Badenfurt</option>
-                    <option value="Bom Retiro">Bom Retiro</option>
-                    <option value="Boa Vista">Boa Vista</option>
-                    <option value="Centro">Centro</option>
-                    <option value="Da Glória">Da Glória</option>
-                    <option value="Do Salto">Do Salto</option>
-                    <option value="Escola Agrícola">Escola Agrícola</option>
-                    <option value="Fidélis">Fidélis</option>
-                    <option value="Fortaleza">Fortaleza</option>
-                    <option value="Fortaleza Alta">Fortaleza Alta</option>
-                    <option value="Garcia">Garcia</option>
-                    <option value="Itoupava Central">Itoupava Central</option>
-                    <option value="Itoupava Norte">Itoupava Norte</option>
-                    <option value="Itoupava Seca">Itoupava Seca</option>
-                    <option value="Itoupavazinha">Itoupavazinha</option>
-                    <option value="Jardim Blumenau">Jardim Blumenau</option>
-                    <option value="Nova Esperança">Nova Esperança</option>
-                    <option value="Passo Manso">Passo Manso</option>
-                    <option value="Ponta Aguda">Ponta Aguda</option>
-                    <option value="Progresso">Progresso</option>
-                    <option value="Ribeirão Fresco">Ribeirão Fresco</option>
-                    <option value="Salto do Norte">Salto do Norte</option>
-                    <option value="Salto Weissbach">Salto Weissbach</option>
-                    <option value="Testo Salto">Testo Salto</option>
-                    <option value="Tribess">Tribess</option>
-                    <option value="Valparaíso">Valparaíso</option>
-                    <option value="Velha">Velha</option>
-                    <option value="Velha Central">Velha Central</option>
-                    <option value="Velha Grande">Velha Grande</option>
-                    <option value="Victor Konder">Victor Konder</option>
-                    <option value="Vila Formosa">Vila Formosa</option>
-                    <option value="Vila Itoupava">Vila Itoupava</option>
-                    <option value="Vila Nova">Vila Nova</option>
-                    <option value="Vorstadt">Vorstadt</option>
-                </select>
-            </div>
+			<!-- BAIRRO -->
+			<div class="container mt-5">
+				<label for="bairro" class="form-label">Selecione o Bairro:</label> <select
+					class="form-select" id="bairro" name="bairro">
+					<option value="Água Verde">Água Verde</option>
+					<option value="Badenfurt">Badenfurt</option>
+					<option value="Bom Retiro">Bom Retiro</option>
+					<option value="Boa Vista">Boa Vista</option>
+					<option value="Centro">Centro</option>
+					<option value="Da Glória">Da Glória</option>
+					<option value="Do Salto">Do Salto</option>
+					<option value="Escola Agrícola">Escola Agrícola</option>
+					<option value="Fidélis">Fidélis</option>
+					<option value="Fortaleza">Fortaleza</option>
+					<option value="Fortaleza Alta">Fortaleza Alta</option>
+					<option value="Garcia">Garcia</option>
+					<option value="Itoupava Central">Itoupava Central</option>
+					<option value="Itoupava Norte">Itoupava Norte</option>
+					<option value="Itoupava Seca">Itoupava Seca</option>
+					<option value="Itoupavazinha">Itoupavazinha</option>
+					<option value="Jardim Blumenau">Jardim Blumenau</option>
+					<option value="Nova Esperança">Nova Esperança</option>
+					<option value="Passo Manso">Passo Manso</option>
+					<option value="Ponta Aguda">Ponta Aguda</option>
+					<option value="Progresso">Progresso</option>
+					<option value="Ribeirão Fresco">Ribeirão Fresco</option>
+					<option value="Salto do Norte">Salto do Norte</option>
+					<option value="Salto Weissbach">Salto Weissbach</option>
+					<option value="Testo Salto">Testo Salto</option>
+					<option value="Tribess">Tribess</option>
+					<option value="Valparaíso">Valparaíso</option>
+					<option value="Velha">Velha</option>
+					<option value="Velha Central">Velha Central</option>
+					<option value="Velha Grande">Velha Grande</option>
+					<option value="Victor Konder">Victor Konder</option>
+					<option value="Vila Formosa">Vila Formosa</option>
+					<option value="Vila Itoupava">Vila Itoupava</option>
+					<option value="Vila Nova">Vila Nova</option>
+					<option value="Vorstadt">Vorstadt</option>
+				</select>
+			</div>
 
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary btn-lg">
-                    <i class="bi bi-plus-circle"></i> Alterar
-                </button>
-                <button type="reset" class="btn btn-secondary btn-lg">
-                    <i class="bi bi-trash"></i> Limpar
-                </button>
-            </div>
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary btn-lg">
+					<i class="bi bi-plus-circle"></i> Alterar
+				</button>
+				<button type="reset" class="btn btn-secondary btn-lg">
+					<i class="bi bi-trash"></i> Limpar
+				</button>
+			</div>
 
-        </form>
-    </div>
+		</form>
+	</div>
 </main>
 <section class="info_section ">
 	<div class="container">
