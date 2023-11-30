@@ -229,7 +229,7 @@ public class ClienteController {
 		Usuario usuario = usuarioDao.findByEmail(email);
 		System.out.println(result);
 		
-		if(result.hasErrors()) {
+		if(result.hasErrors() ) {
 			return "redirect:edita-endereco?id="+endereco.getId();
 		}
 		
@@ -257,7 +257,7 @@ public class ClienteController {
     @PostMapping("adiciona-agendamento")
     public String adicionaAgendamento(@Valid Agendamento agendamento,BindingResult result) {
     	
-    	 if(result.hasErrors()) {
+    	 if(result.hasErrors() || agendamento.getData().length() <10 || agendamento.getData().length() <=5) {
     	  return"redirect:index";
     	 }
     	 
